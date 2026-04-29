@@ -1,0 +1,93 @@
+{
+  "name": "Button Link",
+  "description": "Low-emphasis text-style action for secondary or tertiary flows.",
+  "category": "Actions",
+  "variants": [],
+  "states": [
+    "enabled",
+    "hover",
+    "pressed",
+    "focused",
+    "disabled"
+  ],
+  "props": {
+    "iconLeading": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a leading icon left of the label."
+    },
+    "iconLeadingSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render in the leading slot."
+    },
+    "iconTrailing": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a trailing icon right of the label."
+    },
+    "iconTrailingSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render in the trailing slot."
+    }
+  },
+  "tokens": {
+    "text": {
+      "enabled": "button/link/fg",
+      "hover": "button/link/fg-hover",
+      "pressed": "button/link/fg-pressed",
+      "focus": "button/link/fg-focus",
+      "disabled": "button/link/fg-disabled"
+    }
+  },
+  "spacing": {
+    "padding-x": "app-spacing/s0",
+    "padding-y": "app-spacing/s0",
+    "gap": "app-spacing/s4",
+    "height": "16px",
+    "border-radius": "radius/none",
+    "icon-size": "icon-size/xs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "font-size": "typography/font-size/xs",
+    "font-weight": "typography/font-weight/semibold(600)"
+  },
+  "usage": {
+    "do": [
+      "Use for lower-priority actions or inline action patterns",
+      "Keep labels short and explicit"
+    ],
+    "dont": [
+      "Don't use as the primary call to action in a section",
+      "Don't style like a navigation link — this triggers an action, not a page change"
+    ]
+  },
+  "accessibility": {
+    "role": "button",
+    "aria": [
+      "aria-label",
+      "aria-disabled"
+    ],
+    "keyboard": "Tab to focus, Enter or Space to activate. Must preserve clear focus indication and sufficient contrast in all states."
+  },
+  "examples": [
+    {
+      "label": "Default",
+      "props": {}
+    },
+    {
+      "label": "With icon",
+      "props": {
+        "iconLeading": true
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "disabled": true
+      }
+    }
+  ]
+}

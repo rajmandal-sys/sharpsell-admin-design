@@ -1,0 +1,133 @@
+{
+  "name": "Radio Button",
+  "description": "Radio button control for selecting exactly one option from a mutually exclusive group.",
+  "category": "Forms",
+  "variants": {
+    "checked": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "pressed",
+    "disabled"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this option is the active selection in the group."
+    },
+    "info": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an info icon next to the label."
+    },
+    "text": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the radio button label text."
+    },
+    "supportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional helper text below the label."
+    }
+  },
+  "tokens": {
+    "control": {
+      "surface": {
+        "default": "radio/bg",
+        "hover": "radio/bg-hover",
+        "pressed": "radio/bg-pressed",
+        "disabled": "radio/bg-disabled"
+      },
+      "border": {
+        "default": "radio/border",
+        "hover": "radio/border-hover",
+        "pressed": "radio/border-pressed",
+        "selected": "radio/border-selected",
+        "focus": "radio/border-focus"
+      },
+      "dot": {
+        "enabled": "radio/dot",
+        "disabled": "radio/dot-disabled"
+      }
+    },
+    "text": {
+      "label": "radio/label",
+      "supporting": "radio/supporting-text",
+      "icon-info": "radio/icon-info"
+    }
+  },
+  "spacing": {
+    "width": "222px",
+    "height": "33px",
+    "control-size": "16px",
+    "control-radius": "radius/full",
+    "gap": "app-spacing/s8",
+    "icon-size": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use when users must choose one and only one option from a set",
+      "Use for plan selection, delivery method, billing cycle, etc.",
+      "Always present at least two options in a group"
+    ],
+    "dont": [
+      "Don't use for multi-select behavior — use Checkbox instead",
+      "Don't use as a standalone on/off control — use Checkbox or Switch"
+    ]
+  },
+  "accessibility": {
+    "role": "radio",
+    "aria": [
+      "aria-checked",
+      "aria-disabled",
+      "role=radiogroup (on container)"
+    ],
+    "keyboard": "Arrow keys move within the group, Space confirms the focused option."
+  },
+  "examples": [
+    {
+      "label": "Unchecked",
+      "props": {
+        "checked": false
+      }
+    },
+    {
+      "label": "Checked",
+      "props": {
+        "checked": true
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "checked": false,
+        "disabled": true
+      }
+    },
+    {
+      "label": "Disabled checked",
+      "props": {
+        "checked": true,
+        "disabled": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "_readme": "Elevation and shadow tokens. No shadow effects are currently defined in the Figma library — this file is a placeholder for when they are added.",
+
+  "elevation": {
+    "none": "none",
+    "sm":   "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    "md":   "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+    "lg":   "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+  },
+
+  "semantic": {
+    "card":    "{elevation.none}",
+    "dropdown-menu": "{elevation.md}",
+    "modal":   "{elevation.lg}",
+    "tooltip": "{elevation.sm}"
+  },
+
+  "_note": "These are placeholder values. Update with actual values once shadows are defined in the Figma library."
+}

@@ -1,0 +1,59 @@
+{
+  "_readme": "Copy this file for every new component. Fill in all fields. Remove _readme before publishing.",
+
+  "name": "ComponentName",
+  "description": "One sentence — what it is and the primary use case.",
+  "category": "Actions | Forms | Containers | Overlays | Feedback | Display | Navigation",
+
+  "variants": ["default"],
+
+  "states": ["enabled", "hover", "focused", "disabled"],
+
+  "props": {
+    "propName": {
+      "type": "string | boolean | enum",
+      "default": "value",
+      "options": ["optionA", "optionB"],
+      "description": "What this prop controls"
+    }
+  },
+
+  "tokens": {
+    "_readme": "Reference component-level tokens from /tokens/colors.json. Never use raw hex values.",
+    "surface":    "component.COMPONENT_NAME.surface.enabled",
+    "text":       "component.COMPONENT_NAME.text.enabled",
+    "border":     "component.COMPONENT_NAME.border.enabled"
+  },
+
+  "spacing": {
+    "padding-x":  "semantic.component.COMPONENT_NAME.padding-x",
+    "padding-y":  "semantic.component.COMPONENT_NAME.padding-y",
+    "gap":        "semantic.component.COMPONENT_NAME.gap"
+  },
+
+  "typography": {
+    "label":      "semantic.text.label"
+  },
+
+  "usage": {
+    "do": [
+      "Describe a correct use case"
+    ],
+    "dont": [
+      "Describe a common mistake to avoid"
+    ]
+  },
+
+  "accessibility": {
+    "role": "button | input | checkbox | ...",
+    "aria": ["aria-label", "aria-disabled"],
+    "keyboard": "Tab to focus, Enter/Space to activate"
+  },
+
+  "examples": [
+    {
+      "label": "Default",
+      "props": {}
+    }
+  ]
+}

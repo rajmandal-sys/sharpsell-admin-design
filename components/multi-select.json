@@ -1,0 +1,190 @@
+{
+  "name": "Dropdown Multi Select",
+  "description": "Multi-select dropdown for choosing more than one value from a predefined list.",
+  "category": "Forms",
+  "variants": {
+    "destructive": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "open",
+    "filled",
+    "disabled"
+  ],
+  "props": {
+    "destructive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Error styling when the current selection is invalid or required choices are missing."
+    },
+    "label": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the field label above the dropdown."
+    },
+    "hintText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows helper or error text below the dropdown."
+    },
+    "scrollBar": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a scrollbar in the dropdown menu when options overflow."
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a required field indicator next to the label."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional info text next to the label."
+    },
+    "maxSelection": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the maximum number of allowed selections."
+    },
+    "hintAndMaxSelection": {
+      "type": "boolean",
+      "default": true,
+      "description": "Controls visibility of hint text and max selection indicator together."
+    }
+  },
+  "tokens": {
+    "field": {
+      "surface": {
+        "enabled": "input-dropdown/bg",
+        "hover": "input-dropdown/bg-hover",
+        "disabled": "input-dropdown/bg-disabled"
+      },
+      "text": {
+        "value": "input-dropdown/fg",
+        "placeholder": "input-dropdown/fg-placeholder",
+        "label": "input-dropdown/label",
+        "mandatory": "input-dropdown/mandatory",
+        "hint": "input-dropdown/hint-message",
+        "error": "input-dropdown/error-message"
+      },
+      "icon": {
+        "arrow": "input-dropdown/icon-arrow",
+        "info": "input-dropdown/icon-info"
+      },
+      "border": {
+        "enabled": "input-dropdown/border",
+        "focus": "input-dropdown/border-focus",
+        "error": "input-dropdown/border-error"
+      }
+    },
+    "tag": {
+      "surface": "input-dropdown/tag-bg",
+      "text": "input-dropdown/tag-fg",
+      "border": "input-dropdown/tag-border",
+      "icon-close": "input-dropdown/tag-icon-close"
+    },
+    "menu": {
+      "surface": "input-dropdown/menu-bg",
+      "border": "input-dropdown/menu-border",
+      "scrollbar": "input-dropdown/menu-scrollbar",
+      "item": {
+        "text": "input-dropdown/menu-item-fg",
+        "surface-selected": "input-dropdown/menu-item-bg-selected",
+        "icon-check": "input-dropdown/menu-item-icon-check"
+      }
+    },
+    "search": {
+      "surface": "input-search/bg",
+      "border": "input-search/border",
+      "text": "input-search/fg",
+      "hint": "input-search/hint-message",
+      "icon-info": "input-search/icon-info",
+      "icon-search": "input-search/icon-search"
+    }
+  },
+  "spacing": {
+    "width": "320px",
+    "height": "62px",
+    "gap": "app-spacing/s2",
+    "border-radius": "radius/medium",
+    "menu-border-radius": "radius/small",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs",
+    "icon-size-info": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "value": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    },
+    "menu-item": {
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use when users need to select multiple controlled options such as people, tags, permissions, or categories",
+      "Use Filled state when at least one option is already selected",
+      "Show selected values as removable tags in the field"
+    ],
+    "dont": [
+      "Don't use when only one value can be chosen — use Single Select instead",
+      "Don't hide the number of selections from the user"
+    ]
+  },
+  "accessibility": {
+    "role": "listbox",
+    "aria": [
+      "aria-expanded",
+      "aria-haspopup",
+      "aria-multiselectable",
+      "aria-required (when mandatory)",
+      "aria-invalid (when destructive)"
+    ],
+    "keyboard": "Keyboard users should be able to open the menu, move through options, and add or remove selections without losing context."
+  },
+  "examples": [
+    {
+      "label": "Default enabled",
+      "props": {
+        "destructive": false
+      }
+    },
+    {
+      "label": "Open with options",
+      "props": {
+        "state": "open"
+      }
+    },
+    {
+      "label": "Filled with tags",
+      "props": {
+        "state": "filled"
+      }
+    },
+    {
+      "label": "With error",
+      "props": {
+        "destructive": true
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "disabled": true
+      }
+    }
+  ]
+}

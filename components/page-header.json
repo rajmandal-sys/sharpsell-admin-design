@@ -1,0 +1,107 @@
+{
+  "name": "Page Header",
+  "description": "Top-level page header with breadcrumb navigation, page title, optional badge, supporting text, and action buttons.",
+  "category": "Navigation",
+  "variants": {},
+  "states": [
+    "default"
+  ],
+  "props": {
+    "arrowBack": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a back arrow for navigating to the previous page."
+    },
+    "badge": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a status badge next to the page title."
+    },
+    "supportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows description text below the title row."
+    },
+    "actions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows action buttons on the right side of the header."
+    }
+  },
+  "tokens": {
+    "title": "page-header/title",
+    "supporting-text": "page-header/supporting-text",
+    "icon-back": "page-header/icon-back",
+    "divider": "page-header/divider",
+    "breadcrumb": {
+      "item": "breadcrumb/item-fg",
+      "current": "breadcrumb/current-fg",
+      "separator": "breadcrumb/separator-fg"
+    }
+  },
+  "spacing": {
+    "padding-x": "app-spacing/s0",
+    "padding-y": "app-spacing/s0",
+    "title-row-gap": "app-spacing/s8",
+    "breadcrumb-gap": "app-spacing/s8",
+    "section-gap": "app-spacing/s4",
+    "icon-size": "icon-size/xs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "title": {
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use at the top of every page to establish context and navigation",
+      "Always include breadcrumbs for pages deeper than the top level",
+      "Place primary page-level actions in the actions slot"
+    ],
+    "dont": [
+      "Don't use more than one page header per page",
+      "Don't omit the back arrow on nested pages",
+      "Don't place form-level actions in the page header — use a Footer instead"
+    ]
+  },
+  "accessibility": {
+    "role": "banner",
+    "aria": [
+      "aria-label=\"Page header\""
+    ],
+    "keyboard": "Tab moves between breadcrumb links and action buttons."
+  },
+  "examples": [
+    {
+      "label": "Full header",
+      "props": {
+        "arrowBack": true,
+        "badge": true,
+        "supportingText": true,
+        "actions": true
+      }
+    },
+    {
+      "label": "Minimal (title only)",
+      "props": {
+        "arrowBack": false,
+        "badge": false,
+        "supportingText": false,
+        "actions": false
+      }
+    },
+    {
+      "label": "With actions",
+      "props": {
+        "arrowBack": true,
+        "actions": true
+      }
+    }
+  ]
+}

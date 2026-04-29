@@ -1,0 +1,140 @@
+{
+  "name": "Switch",
+  "description": "Switch control for immediately toggling a binary setting on or off.",
+  "category": "Forms",
+  "variants": {
+    "checked": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "pressed",
+    "disabled"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the setting is on (true) or off (false)."
+    },
+    "text": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the switch label text."
+    },
+    "supportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional helper text below the label."
+    },
+    "info": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an info icon next to the label."
+    }
+  },
+  "tokens": {
+    "track": {
+      "on": {
+        "enabled": "switch/track-on",
+        "hover": "switch/track-on-hover",
+        "pressed": "switch/track-on-pressed",
+        "disabled": "switch/track-on-disabled"
+      },
+      "off": {
+        "enabled": "switch/track-off",
+        "hover": "switch/track-off-hover",
+        "pressed": "switch/track-off-pressed",
+        "disabled": "switch/track-disabled"
+      }
+    },
+    "thumb": {
+      "enabled": "switch/thumb",
+      "disabled": "switch/thumb-disabled"
+    },
+    "border": {
+      "focus-on": "switch/border-focus-on",
+      "focus-off": "switch/border-focus-off"
+    },
+    "text": {
+      "label": "switch/label",
+      "supporting": "switch/supporting-text",
+      "icon-info": "switch/icon-info"
+    }
+  },
+  "spacing": {
+    "width": "238px",
+    "height": "34px",
+    "track-width": "32px",
+    "track-height": "18px",
+    "thumb-size": "14px",
+    "track-padding": "app-spacing/s2",
+    "gap": "app-spacing/s8",
+    "track-radius": "radius/large",
+    "icon-size": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for immediate system or preference changes that take effect on toggle",
+      "Pair with a clear label that explains the consequence of the on/off state",
+      "Toggling should change the setting right away without separate form submission"
+    ],
+    "dont": [
+      "Don't use for multi-select lists — use Checkbox instead",
+      "Don't use for agreement checkboxes — use Checkbox instead",
+      "Don't use without a label explaining the toggle effect"
+    ]
+  },
+  "accessibility": {
+    "role": "switch",
+    "aria": [
+      "aria-checked",
+      "aria-disabled",
+      "aria-label"
+    ],
+    "keyboard": "Space toggles the value, and focus visibility must remain clear."
+  },
+  "examples": [
+    {
+      "label": "Off",
+      "props": {
+        "checked": false
+      }
+    },
+    {
+      "label": "On",
+      "props": {
+        "checked": true
+      }
+    },
+    {
+      "label": "Disabled off",
+      "props": {
+        "checked": false,
+        "disabled": true
+      }
+    },
+    {
+      "label": "Disabled on",
+      "props": {
+        "checked": true,
+        "disabled": true
+      }
+    }
+  ]
+}

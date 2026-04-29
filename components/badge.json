@@ -1,0 +1,171 @@
+{
+  "name": "Badge",
+  "description": "Compact label for status, count, or category indication attached to other elements.",
+  "category": "Display",
+  "variants": {
+    "size": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "icon": [
+      "false",
+      "icon-trailing",
+      "button-trailing"
+    ],
+    "color": [
+      "gray",
+      "primary",
+      "error",
+      "warning",
+      "success",
+      "orange"
+    ],
+    "outline": [
+      "false"
+    ]
+  },
+  "states": [
+    "default"
+  ],
+  "props": {
+    "size": {
+      "type": "enum",
+      "default": "sm",
+      "options": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "description": "Controls the badge height and text size."
+    },
+    "icon": {
+      "type": "enum",
+      "default": "false",
+      "options": [
+        "false",
+        "icon-trailing",
+        "button-trailing"
+      ],
+      "description": "Whether to show a trailing icon or a trailing close/action button."
+    },
+    "color": {
+      "type": "enum",
+      "default": "gray",
+      "options": [
+        "gray",
+        "primary",
+        "error",
+        "warning",
+        "success",
+        "orange"
+      ],
+      "description": "Semantic color indicating badge intent."
+    },
+    "outline": {
+      "type": "enum",
+      "default": "false",
+      "options": [
+        "false"
+      ],
+      "description": "Whether the badge uses an outline style."
+    }
+  },
+  "tokens": {
+    "text": {
+      "error": "color/error/700",
+      "warning": "color/warning/700",
+      "success": "color/success/700"
+    }
+  },
+  "spacing": {
+    "sm": {
+      "padding-x": "app-spacing/s8",
+      "padding-y": "app-spacing/s2",
+      "height": "19px",
+      "gap": "app-spacing/s0"
+    },
+    "md": {
+      "padding-x": "app-spacing/s8",
+      "padding-y": "app-spacing/s2",
+      "gap": "app-spacing/s4"
+    },
+    "lg": {
+      "padding-x": "app-spacing/s8",
+      "padding-y": "app-spacing/s2",
+      "gap": "app-spacing/s4"
+    }
+  },
+  "typography": {
+    "sm": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    },
+    "md": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/medium(500)"
+    },
+    "lg": {
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/medium(500)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use to indicate status, count, or category on a related element",
+      "Use semantic colors consistently — error for failures, success for completions, warning for alerts",
+      "Keep badge text extremely short (1–3 words or a number)"
+    ],
+    "dont": [
+      "Don't use badges for primary actions — use Button instead",
+      "Don't stack multiple badges of the same color next to each other",
+      "Don't use as standalone content without a parent context"
+    ]
+  },
+  "accessibility": {
+    "role": "status",
+    "aria": [
+      "aria-label (when icon-only or when color conveys meaning)"
+    ],
+    "keyboard": "Not interactive by default. If badge has a trailing action button, it must be focusable."
+  },
+  "examples": [
+    {
+      "label": "Gray small",
+      "props": {
+        "size": "sm",
+        "color": "gray"
+      }
+    },
+    {
+      "label": "Primary medium",
+      "props": {
+        "size": "md",
+        "color": "primary"
+      }
+    },
+    {
+      "label": "Error with icon",
+      "props": {
+        "size": "md",
+        "color": "error",
+        "icon": "icon-trailing"
+      }
+    },
+    {
+      "label": "Success large",
+      "props": {
+        "size": "lg",
+        "color": "success"
+      }
+    },
+    {
+      "label": "Warning with button",
+      "props": {
+        "size": "md",
+        "color": "warning",
+        "icon": "button-trailing"
+      }
+    }
+  ]
+}

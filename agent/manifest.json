@@ -1,0 +1,70 @@
+{
+  "_readme": "This is the entry point for AI agents. Update BASE_URL after you publish the repo. All raw file URLs are stable.",
+
+  "name": "SharpSell Design System",
+  "version": "1.2.0",
+  "description": "SharpSell's complete design language — tokens, components, layouts, and guidelines.",
+
+  "base_url": "https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main",
+
+  "agent_instructions": "You are generating UI for the SharpSell platform. Before generating any screen, fetch and read the resources listed in this manifest. Follow all token values, component specs, and guidelines exactly. Never hardcode colors, spacing, or font sizes — always reference tokens by name.",
+
+  "tokens": {
+    "colors":     "{base_url}/tokens/colors.json",
+    "spacing":    "{base_url}/tokens/spacing.json",
+    "typography": "{base_url}/tokens/typography.json",
+    "borders":    "{base_url}/tokens/borders.json",
+    "elevation":  "{base_url}/tokens/elevation.json"
+  },
+
+  "components": {
+    "index":              "{base_url}/components/index.md",
+
+    "button":             "{base_url}/components/button.json",
+    "button-link":        "{base_url}/components/button-link.json",
+    "icon-button":        "{base_url}/components/icon-button.json",
+
+    "input":              "{base_url}/components/input.json",
+    "search":             "{base_url}/components/search.json",
+    "date-time-input":    "{base_url}/components/date-time-input.json",
+    "date-range-input":   "{base_url}/components/date-range-input.json",
+
+    "select":             "{base_url}/components/select.json",
+    "multi-select":       "{base_url}/components/multi-select.json",
+    "checkbox":           "{base_url}/components/checkbox.json",
+    "radio-button":       "{base_url}/components/radio-button.json",
+    "switch":             "{base_url}/components/switch.json",
+
+    "collapsable-card":   "{base_url}/components/collapsable-card.json",
+    "section-card":       "{base_url}/components/section-card.json",
+    "footer":             "{base_url}/components/footer.json",
+
+    "modal":              "{base_url}/components/modal.json",
+
+    "badge":              "{base_url}/components/badge.json",
+    "featured-icon":      "{base_url}/components/featured-icon.json",
+
+    "breadcrumb":         "{base_url}/components/breadcrumb.json",
+    "page-header":        "{base_url}/components/page-header.json"
+  },
+
+  "layouts": {
+    "index": "{base_url}/layouts/index.md",
+    "detail-view": "{base_url}/layouts/detail-view.json"
+  },
+
+  "guidelines": {
+    "overview":      "{base_url}/guidelines/overview.md",
+    "accessibility": "{base_url}/guidelines/accessibility.md",
+    "voice-tone":    "{base_url}/guidelines/voice-tone.md"
+  },
+
+  "priority_load": [
+    "tokens.colors",
+    "tokens.spacing",
+    "tokens.typography",
+    "guidelines.overview"
+  ],
+
+  "_note": "priority_load lists the minimum files an agent should fetch before generating any UI. Load all component files relevant to the screen being generated."
+}

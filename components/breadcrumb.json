@@ -1,0 +1,125 @@
+{
+  "name": "Breadcrumb",
+  "description": "Horizontal navigation trail showing the user's current location within the page hierarchy.",
+  "category": "Navigation",
+  "variants": {},
+  "states": [
+    "default"
+  ],
+  "subComponents": {
+    "breadcrumbButtonBase": {
+      "description": "Individual breadcrumb item. Internal building block.",
+      "variants": {
+        "current": [
+          false,
+          true
+        ],
+        "type": [
+          "text"
+        ],
+        "icon": [
+          false,
+          true
+        ],
+        "state": [
+          "default",
+          "hover",
+          "focused"
+        ]
+      }
+    }
+  },
+  "props": {
+    "items": {
+      "type": "array",
+      "default": [],
+      "description": "Ordered list of breadcrumb labels. The last item is the current page."
+    },
+    "showIcon": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows an icon alongside each breadcrumb item."
+    }
+  },
+  "tokens": {
+    "item": {
+      "text": "breadcrumb/item-fg",
+      "icon": "breadcrumb/item-fg"
+    },
+    "current": {
+      "text": "breadcrumb/current-fg",
+      "icon": {
+        "default": "breadcrumb/current/icon-fg",
+        "hover": "breadcrumb/current/icon-fg-hover"
+      },
+      "text-states": {
+        "default": "breadcrumb/current/text-fg",
+        "hover": "breadcrumb/current/text-fg-hover"
+      }
+    },
+    "separator": {
+      "icon": "breadcrumb/separator-fg"
+    },
+    "link": {
+      "default": "button/link/fg",
+      "focus": "button/link/fg-focus",
+      "hover": "button/link/fg-hover"
+    }
+  },
+  "spacing": {
+    "gap": "app-spacing/s8",
+    "item-gap": "app-spacing/s4",
+    "item-padding": "app-spacing/s0",
+    "icon-size": "icon-size/xs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "font-size": "typography/font-size/xs",
+    "font-weight": {
+      "item": "typography/font-weight/semibold(600)",
+      "current": "typography/font-weight/semibold(600)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use to show the user's current position in the navigation hierarchy",
+      "Place at the top of the page, above the page header",
+      "Make all items except the current page clickable"
+    ],
+    "dont": [
+      "Don't use for flat navigation with no hierarchy",
+      "Don't truncate breadcrumb items — shorten labels instead",
+      "Don't use more than 4–5 levels deep"
+    ]
+  },
+  "accessibility": {
+    "role": "navigation",
+    "aria": [
+      "aria-label=\"Breadcrumb\"",
+      "aria-current=\"page\" (on current item)"
+    ],
+    "keyboard": "Tab moves between breadcrumb links. Enter activates a link."
+  },
+  "examples": [
+    {
+      "label": "Three levels",
+      "props": {
+        "items": [
+          "Home",
+          "Settings",
+          "Profile"
+        ]
+      }
+    },
+    {
+      "label": "With icon",
+      "props": {
+        "items": [
+          "Home",
+          "Users"
+        ],
+        "icon": true
+      }
+    }
+  ]
+}

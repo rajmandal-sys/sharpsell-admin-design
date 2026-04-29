@@ -1,0 +1,138 @@
+{
+  "name": "Date Range Input",
+  "description": "Single field for selecting or displaying a start and end date-time range.",
+  "category": "Forms",
+  "variants": {
+    "destructive": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "filled",
+    "disabled"
+  ],
+  "props": {
+    "destructive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows validation error styling. Pair with error hint text."
+    },
+    "label": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the field label above the input."
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a required field indicator next to the label."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional info text next to the label."
+    },
+    "hint": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows helper or error text below the input."
+    }
+  },
+  "tokens": {
+    "surface": {
+      "enabled": "input/bg",
+      "hover": "input/bg-hover",
+      "disabled": "input/bg-disabled"
+    },
+    "text": {
+      "value": "input/fg",
+      "placeholder": "input/fg-placeholder",
+      "disabled": "input/fg-disabled",
+      "label": "input/label",
+      "mandatory": "input/mandatory",
+      "hint": "input/hint-message",
+      "error": "input/error-message"
+    },
+    "icon": {
+      "info": "input/icon-info",
+      "trailing": "input/icon-trailing"
+    },
+    "border": {
+      "enabled": "input/border",
+      "focus": "input/border-focus",
+      "error": "input/border-error"
+    }
+  },
+  "spacing": {
+    "width": "320px",
+    "height": "62px",
+    "padding-x": "app-spacing/s8",
+    "padding-y": "app-spacing/s6",
+    "gap": "app-spacing/s2",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs",
+    "icon-size-info": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "value": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for reporting windows, booking periods, campaign ranges, or flows where two timestamps are treated as one value",
+      "Validate that the end value cannot precede the start value",
+      "Display both start and end values in one continuous field"
+    ],
+    "dont": [
+      "Don't use for open-ended time periods",
+      "Don't use when start and end dates are captured in separate fields"
+    ]
+  },
+  "accessibility": {
+    "role": "textbox",
+    "aria": [
+      "aria-label",
+      "aria-required (when mandatory)",
+      "aria-invalid (when destructive)"
+    ],
+    "keyboard": "The field should clearly communicate that it contains two values: start and end."
+  },
+  "examples": [
+    {
+      "label": "Default enabled",
+      "props": {
+        "destructive": false
+      }
+    },
+    {
+      "label": "Filled",
+      "props": {
+        "state": "filled"
+      }
+    },
+    {
+      "label": "With error",
+      "props": {
+        "destructive": true
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "disabled": true
+      }
+    }
+  ]
+}

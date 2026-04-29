@@ -1,0 +1,93 @@
+{
+  "name": "Footer",
+  "description": "Action footer bar used at the bottom of modals, cards, and page sections to hold primary and secondary action buttons.",
+  "category": "Containers",
+  "variants": {
+    "type": [
+      "right-aligned",
+      "horizontal",
+      "vertical"
+    ]
+  },
+  "states": [
+    "default"
+  ],
+  "props": {
+    "type": {
+      "type": "enum",
+      "default": "right-aligned",
+      "options": [
+        "right-aligned",
+        "horizontal",
+        "vertical"
+      ],
+      "description": "Layout of the action buttons — right-aligned, full-width horizontal, or stacked vertical."
+    },
+    "divider": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a divider line above the footer."
+    },
+    "leadingActions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows buttons in the leading (left) slot."
+    },
+    "trailingActions": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows buttons in the trailing (right) slot."
+    }
+  },
+  "tokens": {
+    "surface": "action-footer/bg",
+    "divider": "action-footer/divider"
+  },
+  "spacing": {
+    "width": "560px",
+    "padding-x": "app-spacing/s16",
+    "padding-y": "app-spacing/s12",
+    "gap": "app-spacing/s8",
+    "border-width": "stroke/s1"
+  },
+  "typography": {
+    "_note": "Footer contains Button instances — typography follows Button spec."
+  },
+  "usage": {
+    "do": [
+      "Use at the bottom of modals, cards, or page sections for action buttons",
+      "Place the primary action in the trailing (right) position",
+      "Use right-aligned for modals, horizontal for mobile, vertical for stacked actions"
+    ],
+    "dont": [
+      "Don't use without at least one action button",
+      "Don't place more than three buttons in a single footer",
+      "Don't use as a standalone component outside of a container"
+    ]
+  },
+  "accessibility": {
+    "role": "contentinfo",
+    "aria": [],
+    "keyboard": "Tab moves between action buttons. Button keyboard behavior applies."
+  },
+  "examples": [
+    {
+      "label": "Right-aligned with two actions",
+      "props": {
+        "type": "right-aligned"
+      }
+    },
+    {
+      "label": "Horizontal full-width",
+      "props": {
+        "type": "horizontal"
+      }
+    },
+    {
+      "label": "Vertical stacked",
+      "props": {
+        "type": "vertical"
+      }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "name": "Date Time Input",
+  "description": "Combined date and time input for scheduling and timestamp entry.",
+  "category": "Forms",
+  "variants": {
+    "destructive": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "filled",
+    "disabled"
+  ],
+  "props": {
+    "destructive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Shows validation error styling. Pair with error hint text."
+    },
+    "label": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the field label above the input."
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a required field indicator next to the label."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional info text next to the label."
+    },
+    "hint": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows helper or error text below the input."
+    }
+  },
+  "tokens": {
+    "surface": {
+      "enabled": "input/bg",
+      "hover": "input/bg-hover",
+      "disabled": "input/bg-disabled"
+    },
+    "text": {
+      "value": "input/fg",
+      "placeholder": "input/fg-placeholder",
+      "disabled": "input/fg-disabled",
+      "label": "input/label",
+      "mandatory": "input/mandatory",
+      "hint": "input/hint-message",
+      "error": "input/error-message"
+    },
+    "icon": {
+      "info": "input/icon-info",
+      "trailing": "input/icon-trailing"
+    },
+    "border": {
+      "enabled": "input/border",
+      "focus": "input/border-focus",
+      "error": "input/border-error"
+    }
+  },
+  "spacing": {
+    "width": "320px",
+    "height": "62px",
+    "padding-x": "app-spacing/s8",
+    "padding-y": "app-spacing/s6",
+    "gap": "app-spacing/s2",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs",
+    "icon-size-info": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "value": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use when users must provide a specific date-time value such as deadlines, publish times, or event start times",
+      "Match the displayed format to the product's locale and backend expectations",
+      "Include a calendar/time picker trigger to help users select a valid value"
+    ],
+    "dont": [
+      "Don't use when date and time are captured separately in the flow",
+      "Don't use for date-only or time-only fields"
+    ]
+  },
+  "accessibility": {
+    "role": "textbox",
+    "aria": [
+      "aria-label",
+      "aria-required (when mandatory)",
+      "aria-invalid (when destructive)"
+    ],
+    "keyboard": "Input format should be clear from label, placeholder, or hint text. Picker access should remain keyboard accessible."
+  },
+  "examples": [
+    {
+      "label": "Default enabled",
+      "props": {
+        "destructive": false
+      }
+    },
+    {
+      "label": "Filled",
+      "props": {
+        "state": "filled"
+      }
+    },
+    {
+      "label": "With error",
+      "props": {
+        "destructive": true
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "disabled": true
+      }
+    }
+  ]
+}

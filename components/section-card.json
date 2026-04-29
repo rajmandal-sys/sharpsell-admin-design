@@ -1,0 +1,119 @@
+{
+  "name": "Section Card",
+  "description": "Expandable card for grouping a section of content with a header, optional body, and optional footer actions.",
+  "category": "Containers",
+  "variants": {
+    "state": [
+      "expanded",
+      "collapsed"
+    ]
+  },
+  "states": [
+    "expanded",
+    "collapsed"
+  ],
+  "props": {
+    "state": {
+      "type": "enum",
+      "default": "expanded",
+      "options": [
+        "expanded",
+        "collapsed"
+      ],
+      "description": "Whether the card body and footer are visible."
+    },
+    "showFooter": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an action footer at the bottom of the card."
+    },
+    "showDropdown": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a dropdown trigger in the header."
+    }
+  },
+  "tokens": {
+    "header": {
+      "surface": "header/bg",
+      "title": "header/title",
+      "supporting-text": "header/supporting-text",
+      "icon": "header/icon",
+      "divider": "header/divider"
+    },
+    "body": {
+      "surface": "card/bg"
+    },
+    "footer": {
+      "surface": "action-footer/bg",
+      "divider": "action-footer/divider"
+    },
+    "card": {
+      "border": "card/border",
+      "surface": "card/bg"
+    }
+  },
+  "spacing": {
+    "width": "643px",
+    "header-padding-x": "app-spacing/s16",
+    "header-padding-y": "app-spacing/s8",
+    "body-padding": "app-spacing/s16",
+    "footer-padding": "app-spacing/s12",
+    "gap": "app-spacing/s0",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "title": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use to organize page content into distinct collapsible sections",
+      "Use footer for section-level actions like Save or Add",
+      "Use collapsed state to let users focus on one section at a time"
+    ],
+    "dont": [
+      "Don't use for individual items in a list — use a list pattern instead",
+      "Don't hide critical content behind a collapsed section"
+    ]
+  },
+  "accessibility": {
+    "role": "region",
+    "aria": [
+      "aria-expanded",
+      "aria-controls (body section)",
+      "aria-labelledby (header title)"
+    ],
+    "keyboard": "Enter or Space on the header toggles expand/collapse."
+  },
+  "examples": [
+    {
+      "label": "Expanded with footer",
+      "props": {
+        "state": "expanded",
+        "showFooter": true
+      }
+    },
+    {
+      "label": "Collapsed",
+      "props": {
+        "state": "collapsed"
+      }
+    },
+    {
+      "label": "Expanded without footer",
+      "props": {
+        "state": "expanded",
+        "showFooter": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "name": "Icon Button",
+  "description": "Compact button rendered as a single icon without a text label. Used for toolbar-style actions where the icon meaning is unambiguous.",
+  "category": "Actions",
+  "variants": {
+    "type": [
+      "primary",
+      "secondary"
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "pressed",
+    "focused",
+    "disabled"
+  ],
+  "props": {
+    "type": {
+      "type": "enum",
+      "default": "secondary",
+      "options": [
+        "primary",
+        "secondary"
+      ],
+      "description": "Visual style — Primary for high emphasis, Secondary for standard actions."
+    },
+    "iconLeading": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the icon in the button."
+    },
+    "iconLeadingSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render."
+    }
+  },
+  "tokens": {
+    "secondary": {
+      "surface": {
+        "enabled": "button/secondary/bg",
+        "hover": "button/secondary/bg-hover",
+        "pressed": "button/secondary/bg-pressed",
+        "disabled": "button/secondary/bg-disabled"
+      },
+      "icon": {
+        "enabled": "button/secondary/fg",
+        "hover": "button/secondary/fg-hover",
+        "disabled": "button/secondary/fg-disabled"
+      },
+      "border": {
+        "enabled": "button/secondary/border",
+        "focus": "button/secondary/border-focus",
+        "disabled": "button/secondary/border-disabled"
+      }
+    }
+  },
+  "spacing": {
+    "padding": "app-spacing/s6",
+    "width": "28px",
+    "height": "28px",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs"
+  },
+  "usage": {
+    "do": [
+      "Use for compact toolbar-style actions where the icon meaning is clear",
+      "Always provide an aria-label since there is no visible text"
+    ],
+    "dont": [
+      "Don't use if the action meaning is ambiguous without a label",
+      "Don't use as a primary call to action — use Button instead"
+    ]
+  },
+  "accessibility": {
+    "role": "button",
+    "aria": [
+      "aria-label (required — no visible text)",
+      "aria-disabled"
+    ],
+    "keyboard": "Tab to focus, Enter or Space to activate."
+  },
+  "examples": [
+    {
+      "label": "Secondary default",
+      "props": {
+        "type": "secondary"
+      }
+    },
+    {
+      "label": "Primary default",
+      "props": {
+        "type": "primary"
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "type": "secondary",
+        "disabled": true
+      }
+    }
+  ]
+}

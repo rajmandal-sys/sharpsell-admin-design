@@ -1,0 +1,34 @@
+{
+  "_readme": "Typography tokens extracted from the Figma Admin UI Library. Keys use Figma slash-notation to match component references.",
+
+  "font": {
+    "family": "Inter",
+    "fallback": "system-ui, -apple-system, sans-serif"
+  },
+
+  "font-size": {
+    "xs": "12px",
+    "sm": "14px"
+  },
+
+  "font-weight": {
+    "regular(400)":  400,
+    "medium(500)":   500,
+    "semibold(600)": 600
+  },
+
+  "line-height": {
+    "tight":  "1.2",
+    "normal": "1.5"
+  },
+
+  "semantic": {
+    "text": {
+      "label":      { "size": "12px", "weight": 600, "lineHeight": "1.2" },
+      "body":       { "size": "12px", "weight": 400, "lineHeight": "1.5" },
+      "body-sm":    { "size": "12px", "weight": 400, "lineHeight": "1.5" },
+      "heading":    { "size": "14px", "weight": 600, "lineHeight": "1.2" },
+      "menu-item":  { "size": "14px", "weight": 400, "lineHeight": "1.5" }
+    }
+  }
+}

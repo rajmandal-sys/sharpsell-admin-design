@@ -1,0 +1,185 @@
+{
+  "name": "Collapsable Card",
+  "description": "Card container that can expand or collapse to show or hide its content section, used for grouping related form fields or information.",
+  "category": "Containers",
+  "variants": {
+    "state": [
+      "expanded",
+      "collapsed",
+      "inactive"
+    ],
+    "status": [
+      "default",
+      "active"
+    ]
+  },
+  "states": [
+    "expanded",
+    "collapsed",
+    "inactive"
+  ],
+  "subComponents": {
+    "headerCollapsableCard": {
+      "description": "Card header with title, optional supporting text, tags, and collapse toggle.",
+      "props": {
+        "divider": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows a divider below the header."
+        },
+        "supportingText": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows description text below the title."
+        },
+        "dropdown": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows a dropdown trigger in the header."
+        },
+        "tag1": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows the first tag."
+        },
+        "tag2": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows the second tag."
+        },
+        "tag3": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows the third tag."
+        }
+      },
+      "tokens": {
+        "surface": "header/bg",
+        "title": "header/title",
+        "supporting": "header/supporting-text",
+        "divider": "header/divider",
+        "tag": "header/tag-fg"
+      }
+    }
+  },
+  "props": {
+    "state": {
+      "type": "enum",
+      "default": "expanded",
+      "options": [
+        "expanded",
+        "collapsed",
+        "inactive"
+      ],
+      "description": "Controls whether the card body is visible, hidden, or disabled."
+    },
+    "status": {
+      "type": "enum",
+      "default": "default",
+      "options": [
+        "default",
+        "active"
+      ],
+      "description": "Active status adds a visual accent to indicate the card is in focus."
+    },
+    "showActionsFooter": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an action footer at the bottom of the card."
+    }
+  },
+  "tokens": {
+    "header": {
+      "surface": "header/bg",
+      "title": "header/title",
+      "supporting-text": "header/supporting-text",
+      "icon": "header/icon",
+      "icon-dropdown": "header/icon-dropdown",
+      "divider": "header/divider",
+      "tag-fg": "header/tag-fg",
+      "tag-bg": "header/tag-bg",
+      "tag-border": "header/tag-border"
+    },
+    "body": {
+      "surface": "card/bg"
+    },
+    "footer": {
+      "surface": "action-footer/bg",
+      "divider": "action-footer/divider"
+    },
+    "card": {
+      "border": "card/border",
+      "border-active": "card/border-active"
+    }
+  },
+  "spacing": {
+    "width": "567px",
+    "header-padding-x": "app-spacing/s16",
+    "header-padding-y": "app-spacing/s8",
+    "body-padding": "app-spacing/s16",
+    "footer-padding": "app-spacing/s12",
+    "gap": "app-spacing/s0",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "title": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use to group related form fields or content that can be shown/hidden",
+      "Use active status to indicate the currently focused card in a multi-card flow",
+      "Use inactive state for cards that are not yet actionable"
+    ],
+    "dont": [
+      "Don't nest collapsable cards inside each other",
+      "Don't use for content that should always be visible",
+      "Don't mix expanded and collapsed states without a clear visual hierarchy"
+    ]
+  },
+  "accessibility": {
+    "role": "region",
+    "aria": [
+      "aria-expanded",
+      "aria-controls (body section)",
+      "aria-labelledby (header title)"
+    ],
+    "keyboard": "Enter or Space on the header toggles expand/collapse. Tab moves to interactive content within the body."
+  },
+  "examples": [
+    {
+      "label": "Expanded default",
+      "props": {
+        "state": "expanded",
+        "status": "default"
+      }
+    },
+    {
+      "label": "Collapsed",
+      "props": {
+        "state": "collapsed"
+      }
+    },
+    {
+      "label": "Active expanded",
+      "props": {
+        "state": "expanded",
+        "status": "active"
+      }
+    },
+    {
+      "label": "Inactive",
+      "props": {
+        "state": "inactive"
+      }
+    }
+  ]
+}

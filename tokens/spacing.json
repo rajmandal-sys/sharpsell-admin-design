@@ -1,0 +1,80 @@
+{
+  "_readme": "Spacing tokens extracted from the Figma Admin UI Library. Values in pixels.",
+
+  "primitive": {
+    "s0":  "0px",
+    "s2":  "2px",
+    "s4":  "4px",
+    "s6":  "6px",
+    "s8":  "8px",
+    "s10": "10px",
+    "s12": "12px",
+    "s14": "14px",
+    "s16": "16px",
+    "s18": "18px",
+    "s32": "32px"
+  },
+
+  "semantic": {
+    "none":   "0px",
+    "xs":     "2px",
+    "sm":     "4px",
+    "md":     "8px",
+    "lg":     "12px",
+    "xl":     "16px",
+    "2xl":    "32px"
+  },
+
+  "component": {
+    "button": {
+      "padding-x": "12px",
+      "padding-y": "6px",
+      "gap":       "4px"
+    },
+    "icon-button": {
+      "padding": "6px"
+    },
+    "input": {
+      "padding-x": "8px",
+      "padding-y": "6px",
+      "gap":       "2px"
+    },
+    "checkbox": {
+      "gap": "8px"
+    },
+    "radio": {
+      "gap": "8px"
+    },
+    "switch": {
+      "track-padding": "2px",
+      "gap": "8px"
+    },
+    "card": {
+      "header-padding-x": "16px",
+      "header-padding-y": "8px",
+      "body-padding":     "16px",
+      "footer-padding":   "12px"
+    },
+    "modal": {
+      "padding": "16px"
+    },
+    "page": {
+      "title-row-gap": "8px",
+      "section-gap":   "4px"
+    }
+  },
+
+  "_figma_tokens": {
+    "app-spacing/s0":  0,
+    "app-spacing/s2":  2,
+    "app-spacing/s4":  4,
+    "app-spacing/s6":  6,
+    "app-spacing/s8":  8,
+    "app-spacing/s10": 10,
+    "app-spacing/s12": 12,
+    "app-spacing/s14": 14,
+    "app-spacing/s16": 16,
+    "app-spacing/s18": 18,
+    "app-spacing/s32": 32
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "name": "Button",
+  "description": "Triggers a single user action in compact admin interfaces.",
+  "category": "Actions",
+  "variants": {
+    "hierarchy": [
+      "primary",
+      "secondary"
+    ],
+    "icon": [
+      "with-text"
+    ],
+    "destructive": [
+      false,
+      true
+    ]
+  },
+  "sizes": [
+    "default"
+  ],
+  "states": [
+    "enabled",
+    "hover",
+    "pressed",
+    "focused",
+    "disabled"
+  ],
+  "props": {
+    "hierarchy": {
+      "type": "enum",
+      "default": "primary",
+      "options": [
+        "primary",
+        "secondary"
+      ],
+      "description": "Visual priority. Primary is the highest-priority action; Secondary supports it."
+    },
+    "destructive": {
+      "type": "boolean",
+      "default": false,
+      "description": "Applies error styling for irreversible actions like delete or revoke."
+    },
+    "iconLeading": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a leading icon left of the label."
+    },
+    "iconLeadingSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render in the leading slot."
+    },
+    "iconTrailing": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a trailing icon right of the label."
+    },
+    "iconTrailingSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render in the trailing slot."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Prevents interaction."
+    }
+  },
+  "tokens": {
+    "primary": {
+      "surface": {
+        "enabled": "button/primary/bg",
+        "hover": "button/primary/bg-hover",
+        "pressed": "button/primary/bg-pressed",
+        "disabled": "button/primary/bg-disabled"
+      },
+      "text": {
+        "enabled": "button/primary/fg",
+        "disabled": "button/primary/fg-disabled"
+      },
+      "border": {
+        "enabled": "button/primary/border",
+        "hover": "button/primary/border-hover",
+        "pressed": "button/primary/border-pressed",
+        "focus": "button/primary/border-focus",
+        "disabled": "button/primary/border-disabled"
+      }
+    },
+    "secondary": {
+      "surface": {
+        "enabled": "button/secondary/bg",
+        "hover": "button/secondary/bg-hover",
+        "pressed": "button/secondary/bg-pressed",
+        "disabled": "button/secondary/bg-disabled"
+      },
+      "text": {
+        "enabled": "button/secondary/fg",
+        "hover": "button/secondary/fg-hover",
+        "disabled": "button/secondary/fg-disabled"
+      },
+      "border": {
+        "enabled": "button/secondary/border",
+        "focus": "button/secondary/border-focus",
+        "disabled": "button/secondary/border-disabled"
+      }
+    },
+    "destructive": {
+      "surface": {
+        "enabled": "button/destructive/bg",
+        "hover": "button/destructive/bg-hover",
+        "pressed": "button/destructive/bg-pressed",
+        "disabled": "button/destructive/bg-disabled"
+      },
+      "text": {
+        "enabled": "button/destructive/fg",
+        "hover": "button/destructive/fg-hover",
+        "disabled": "button/destructive/fg-disabled"
+      },
+      "border": {
+        "enabled": "button/destructive/border",
+        "focus": "button/destructive/border-focus",
+        "disabled": "button/destructive/border-disabled"
+      }
+    }
+  },
+  "spacing": {
+    "padding-x": "app-spacing/s12",
+    "padding-y": "app-spacing/s6",
+    "gap": "app-spacing/s4",
+    "height": "28px",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "font-size": "typography/font-size/xs",
+    "font-weight": "typography/font-weight/semibold(600)"
+  },
+  "usage": {
+    "do": [
+      "Use one Primary action per section",
+      "Pair Primary with Secondary when two actions are needed",
+      "Use destructive styling only for irreversible actions"
+    ],
+    "dont": [
+      "Don't place two Primary buttons side by side",
+      "Don't use button for navigation — use a link instead",
+      "Don't truncate button labels — shorten the copy instead"
+    ]
+  },
+  "accessibility": {
+    "role": "button",
+    "aria": [
+      "aria-label (when icon-only)",
+      "aria-disabled"
+    ],
+    "keyboard": "Tab to focus, Enter or Space to activate. Focused state must remain clearly visible. Disabled state should be paired with supporting context when possible."
+  },
+  "examples": [
+    {
+      "label": "Primary default",
+      "props": {
+        "hierarchy": "primary",
+        "destructive": false
+      }
+    },
+    {
+      "label": "Secondary default",
+      "props": {
+        "hierarchy": "secondary",
+        "destructive": false
+      }
+    },
+    {
+      "label": "Secondary destructive",
+      "props": {
+        "hierarchy": "secondary",
+        "destructive": true
+      }
+    },
+    {
+      "label": "Primary disabled",
+      "props": {
+        "hierarchy": "primary",
+        "disabled": true
+      }
+    },
+    {
+      "label": "With leading icon",
+      "props": {
+        "hierarchy": "primary",
+        "iconLeading": true
+      }
+    },
+    {
+      "label": "With trailing icon",
+      "props": {
+        "hierarchy": "primary",
+        "iconTrailing": true
+      }
+    }
+  ]
+}

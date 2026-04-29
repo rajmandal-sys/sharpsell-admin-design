@@ -1,0 +1,124 @@
+{
+  "name": "Search",
+  "description": "Searchable input field for filtering or locating an item by typed query.",
+  "category": "Forms",
+  "variants": [],
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "filled",
+    "disabled"
+  ],
+  "props": {
+    "label": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the field label above the search input."
+    },
+    "hintText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows helper text below the search input."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional info text next to the label."
+    },
+    "showArrow": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a trailing arrow indicator."
+    }
+  },
+  "tokens": {
+    "surface": {
+      "enabled": "input-search/bg",
+      "hover": "input-search/bg-hover",
+      "disabled": "input-search/bg-disabled"
+    },
+    "text": {
+      "value": "input-search/text",
+      "label": "input-search/label",
+      "hint": "input-search/hint-message",
+      "disabled": "input-search/text-disabled",
+      "search-text": "input-search/fg"
+    },
+    "icon": {
+      "search": "input-search/icon-search",
+      "search-disabled": "input-search/icon-search-disabled",
+      "clear": "input-search/icon-clear",
+      "info": "input-search/icon-info"
+    },
+    "border": {
+      "enabled": "input-search/border",
+      "focus": "input-search/border-focus"
+    }
+  },
+  "spacing": {
+    "width": "320px",
+    "height": "60px",
+    "padding-x": "app-spacing/s8",
+    "padding-y": "app-spacing/s6",
+    "gap": "app-spacing/s4",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs",
+    "icon-size-info": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "value": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for search and filter entry, not for selecting from a fixed list",
+      "Keep placeholder text short and action-oriented",
+      "Show a clear action when a value is present in focused state"
+    ],
+    "dont": [
+      "Don't use when users must choose from predefined options only — use Select instead",
+      "Don't hide the search icon — it signals the field's purpose"
+    ]
+  },
+  "accessibility": {
+    "role": "searchbox",
+    "aria": [
+      "aria-label",
+      "role=search (on container)"
+    ],
+    "keyboard": "Tab to focus, type to search. Label should remain visible. Any clear action must be reachable by keyboard."
+  },
+  "examples": [
+    {
+      "label": "Default enabled",
+      "props": {}
+    },
+    {
+      "label": "Filled",
+      "props": {
+        "state": "filled"
+      }
+    },
+    {
+      "label": "Focused",
+      "props": {
+        "state": "focused"
+      }
+    },
+    {
+      "label": "Disabled",
+      "props": {
+        "disabled": true
+      }
+    }
+  ]
+}

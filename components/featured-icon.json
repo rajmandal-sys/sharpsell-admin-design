@@ -1,0 +1,86 @@
+{
+  "name": "Featured Icon",
+  "description": "Large decorative icon with a colored background circle, used in modals, empty states, and callouts.",
+  "category": "Display",
+
+  "variants": {
+    "size": ["md"],
+    "color": ["primary", "gray", "error", "warning", "success"]
+  },
+
+  "states": ["default"],
+
+  "props": {
+    "size": {
+      "type": "enum",
+      "default": "md",
+      "options": ["md"],
+      "description": "Icon container size."
+    },
+    "color": {
+      "type": "enum",
+      "default": "primary",
+      "options": ["primary", "gray", "error", "warning", "success"],
+      "description": "Semantic color of the icon and background."
+    },
+    "iconSwap": {
+      "type": "instance-swap",
+      "default": null,
+      "description": "Icon instance to render inside the circle."
+    }
+  },
+
+  "tokens": {
+    "primary": {
+      "surface": "featured-icon/primary/bg",
+      "icon": "featured-icon/primary/fg"
+    },
+    "gray": {
+      "surface": "featured-icon/gray/bg",
+      "icon": "featured-icon/gray/fg"
+    },
+    "error": {
+      "surface": "featured-icon/error/bg",
+      "icon": "featured-icon/error/fg"
+    },
+    "warning": {
+      "surface": "featured-icon/warning/bg",
+      "icon": "featured-icon/warning/fg"
+    },
+    "success": {
+      "surface": "featured-icon/success/bg",
+      "icon": "featured-icon/success/fg"
+    }
+  },
+
+  "spacing": {
+    "width": "40px",
+    "height": "40px"
+  },
+
+  "usage": {
+    "do": [
+      "Use in modal headers to reinforce the action type (success, error, warning)",
+      "Use in empty states and onboarding callouts",
+      "Match the color to the semantic meaning of the content"
+    ],
+    "dont": [
+      "Don't use as an interactive element — this is purely decorative",
+      "Don't use inline with body text — it's sized for headers and callouts"
+    ]
+  },
+
+  "accessibility": {
+    "role": "img",
+    "aria": ["aria-hidden=\"true\" (when purely decorative)", "aria-label (when it conveys meaning)"],
+    "keyboard": "Not interactive."
+  },
+
+  "examples": [
+    { "label": "Primary",  "props": { "color": "primary" } },
+    { "label": "Error",    "props": { "color": "error" } },
+    { "label": "Success",  "props": { "color": "success" } },
+    { "label": "Warning",  "props": { "color": "warning" } },
+    { "label": "Gray",     "props": { "color": "gray" } }
+  ]
+}

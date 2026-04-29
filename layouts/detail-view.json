@@ -1,0 +1,115 @@
+{
+  "name": "Detail View",
+  "description": "Two-column layout for record/entity detail pages with collapsable form sections on the left and a summary panel on the right. Used for pipeline details, configuration editors, and similar CRUD detail screens.",
+  "category": "Layouts",
+  "viewport": "1366px",
+
+  "regions": {
+    "header": {
+      "description": "Global top navigation bar with logo, search, and user profile.",
+      "position": "top",
+      "width": "full",
+      "height": "48px",
+      "sticky": true,
+      "components": ["header-navigation"]
+    },
+    "sidebar": {
+      "description": "Left navigation menu with section links.",
+      "position": "left",
+      "width": "320px",
+      "height": "fill",
+      "sticky": true,
+      "components": ["sidebar-navigation"]
+    },
+    "content": {
+      "description": "Main content area to the right of the sidebar.",
+      "position": "right-of-sidebar",
+      "width": "1046px",
+      "height": "fill",
+      "scrollable": true,
+      "padding": "app-spacing/s16",
+      "children": {
+        "page-header": {
+          "description": "Breadcrumb, page title with back arrow, status badge, and primary action button.",
+          "width": "full",
+          "height": "52px",
+          "components": ["breadcrumb", "page-header"]
+        },
+        "main": {
+          "description": "Two-column area below the page header.",
+          "width": "full",
+          "height": "fill",
+          "margin-top": "app-spacing/s12",
+          "display": "flex",
+          "direction": "row",
+          "gap": "app-spacing/s16",
+          "children": {
+            "primary": {
+              "description": "Left column with collapsable card sections containing form fields. One card is expanded at a time, others are collapsed.",
+              "width": "675px",
+              "flex": "1",
+              "height": "fill",
+              "scrollable": true,
+              "gap": "app-spacing/s16",
+              "components": ["collapsable-card", "input", "select", "search"]
+            },
+            "secondary": {
+              "description": "Right column summary panel with action buttons and a searchable property list.",
+              "width": "323px",
+              "flex": "none",
+              "height": "auto",
+              "gap": "app-spacing/s12",
+              "components": ["collapsable-card", "button", "search"]
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "tokens": {
+    "surface": {
+      "page": "color/gray/50",
+      "content": "color/base/white",
+      "sidebar": "color/base/white"
+    },
+    "divider": "header/divider"
+  },
+
+  "spacing": {
+    "content-padding": "app-spacing/s16",
+    "page-header-to-main-gap": "app-spacing/s12",
+    "column-gap": "app-spacing/s16",
+    "primary-card-gap": "app-spacing/s16",
+    "secondary-card-gap": "app-spacing/s12"
+  },
+
+  "behavior": {
+    "scroll": "Content region scrolls vertically. Header and sidebar remain fixed.",
+    "collapse": "Collapsable cards in the primary column follow accordion behavior — expanding one may collapse others.",
+    "responsive": "Not currently responsive. Desktop-only (1366px viewport)."
+  },
+
+  "usage": {
+    "do": [
+      "Use for entity detail pages that have multiple form sections (e.g., pipeline config, product setup)",
+      "Keep the secondary panel for summary info, quick actions, and metadata — not primary form content",
+      "Use collapsable cards to break long forms into scannable sections",
+      "Place the primary CTA in the page header (top-right) for visibility"
+    ],
+    "dont": [
+      "Don't use for simple forms with few fields — use Form Page layout instead",
+      "Don't place critical actions only in the secondary panel — they may be missed",
+      "Don't exceed 5-6 collapsable sections in the primary column"
+    ]
+  },
+
+  "examples": [
+    {
+      "label": "Pipeline details (Figma source)",
+      "figma-node": "14384:158729",
+      "sections-primary": ["Pipeline Details", "Configurations", "Stages and Transitions", "Products", "Configurable labels"],
+      "sections-secondary": ["Actions (Duplicate, Delete)", "Properties (ID, name, status, dates)"]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": "Checkbox",
+  "description": "Checkbox control for selecting one or more independent options.",
+  "category": "Forms",
+  "variants": {
+    "checked": [
+      false,
+      true
+    ]
+  },
+  "states": [
+    "enabled",
+    "hover",
+    "focused",
+    "pressed",
+    "disabled"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the option is selected."
+    },
+    "info": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an info icon next to the label."
+    },
+    "text": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the checkbox label text."
+    },
+    "supportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows additional helper text below the label."
+    }
+  },
+  "tokens": {
+    "control": {
+      "surface": {
+        "unchecked": "checkbox/bg",
+        "checked": "checkbox/bg-check",
+        "hover": "checkbox/bg-hover",
+        "pressed": "checkbox/bg-pressed",
+        "disabled": "checkbox/bg-disabled"
+      },
+      "border": {
+        "unchecked": "checkbox/border-uncheck",
+        "checked": "checkbox/border-check",
+        "focus": "checkbox/border-check-focus"
+      },
+      "icon": {
+        "check": "checkbox/icon-check",
+        "check-disabled": "checkbox/icon-check-disabled"
+      }
+    },
+    "text": {
+      "label": "checkbox/label",
+      "supporting": "checkbox/supporting-text",
+      "icon-info": "checkbox/icon-info"
+    }
+  },
+  "spacing": {
+    "width": "222px",
+    "height": "32px",
+    "control-size": "16px",
+    "gap": "app-spacing/s8",
+    "border-radius": "radius/xsmall",
+    "icon-size": "icon-size/xxs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "label": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for consent, preferences, and multi-select lists",
+      "Use when each option can be turned on or off independently",
+      "Use for explicit agreement confirmations"
+    ],
+    "dont": [
+      "Don't use when only one option may be selected from a group — use Radio Button instead",
+      "Don't use for immediate on/off settings — use Switch instead"
+    ]
+  },
+  "accessibility": {
+    "role": "checkbox",
+    "aria": [
+      "aria-checked",
+      "aria-disabled",
+      "aria-describedby (supporting text)"
+    ],
+    "keyboard": "Space toggles the checkbox. Focus styling should remain clear for keyboard users."
+  },
+  "examples": [
+    {
+      "label": "Unchecked",
+      "props": {
+        "checked": false
+      }
+    },
+    {
+      "label": "Checked",
+      "props": {
+        "checked": true
+      }
+    },
+    {
+      "label": "Disabled checked",
+      "props": {
+        "checked": true,
+        "disabled": true
+      }
+    },
+    {
+      "label": "With info",
+      "props": {
+        "checked": false,
+        "info": true
+      }
+    }
+  ]
+}

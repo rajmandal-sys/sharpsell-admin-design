@@ -1,0 +1,155 @@
+{
+  "name": "Modal",
+  "description": "Overlay dialog for focused tasks, confirmations, or information that requires user attention before proceeding.",
+  "category": "Overlays",
+  "variants": {},
+  "states": [
+    "default"
+  ],
+  "subComponents": {
+    "headerModal": {
+      "description": "Modal header with title, optional supporting text, featured icon, and divider.",
+      "variants": {
+        "type": [
+          "vertical",
+          "horizontal"
+        ]
+      },
+      "props": {
+        "featuredIcon": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows a featured icon above or beside the title."
+        },
+        "showSupportingText": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows description text below the title."
+        },
+        "showDivider": {
+          "type": "boolean",
+          "default": true,
+          "description": "Shows a divider line below the header."
+        }
+      },
+      "tokens": {
+        "surface": "header/bg",
+        "title": "header/title",
+        "supporting": "header/supporting-text",
+        "divider": "header/divider",
+        "close-icon": "button/secondary/fg"
+      }
+    },
+    "footer": {
+      "description": "Modal footer with action buttons. Reuses the Footer component."
+    }
+  },
+  "props": {
+    "headerType": {
+      "type": "enum",
+      "default": "vertical",
+      "options": [
+        "vertical",
+        "horizontal"
+      ],
+      "description": "Layout of the header — vertical stacks icon above title, horizontal places them side by side."
+    },
+    "featuredIcon": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a featured icon in the modal header."
+    },
+    "showSupportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows description text below the title in the header."
+    },
+    "showDivider": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a divider line between the header and body."
+    }
+  },
+  "tokens": {
+    "header": {
+      "surface": "header/bg",
+      "title": "header/title",
+      "supporting-text": "header/supporting-text",
+      "divider": "header/divider",
+      "close-icon": "button/secondary/fg"
+    },
+    "body": {
+      "surface": "modal/bg",
+      "text": "modal/fg"
+    },
+    "footer": {
+      "surface": "action-footer/bg",
+      "divider": "action-footer/divider"
+    },
+    "overlay": {
+      "surface": "modal/overlay"
+    }
+  },
+  "spacing": {
+    "width": "480px",
+    "header-padding": "app-spacing/s16",
+    "body-padding": "app-spacing/s16",
+    "footer-padding": "app-spacing/s16",
+    "header-gap": "app-spacing/s4",
+    "section-gap": "app-spacing/s0",
+    "border-radius": "radius/medium",
+    "border-width": "stroke/s1",
+    "icon-size": "icon-size/xs"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "title": {
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/semibold(600)"
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)"
+    }
+  },
+  "usage": {
+    "do": [
+      "Use for confirmations, focused form entry, or destructive action warnings",
+      "Always include a way to dismiss (close button or cancel action)",
+      "Keep modal content focused — one task per modal"
+    ],
+    "dont": [
+      "Don't nest modals inside other modals",
+      "Don't use modals for content that should be inline on the page",
+      "Don't omit the close/cancel affordance"
+    ]
+  },
+  "accessibility": {
+    "role": "dialog",
+    "aria": [
+      "aria-modal=\"true\"",
+      "aria-labelledby (title)",
+      "aria-describedby (supporting text)"
+    ],
+    "keyboard": "Focus is trapped within the modal. Escape closes the modal. Tab cycles through interactive elements."
+  },
+  "examples": [
+    {
+      "label": "Confirmation modal",
+      "props": {}
+    },
+    {
+      "label": "With featured icon",
+      "props": {
+        "headerType": "vertical",
+        "featuredIcon": true
+      }
+    },
+    {
+      "label": "Horizontal header",
+      "props": {
+        "headerType": "horizontal"
+      }
+    }
+  ]
+}

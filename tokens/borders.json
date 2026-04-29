@@ -1,0 +1,47 @@
+{
+  "_readme": "Border radius, stroke, and icon size tokens extracted from the Figma Admin UI Library.",
+
+  "radius": {
+    "none":   "0px",
+    "xsmall": "4px",
+    "small":  "6px",
+    "medium": "8px",
+    "large":  "12px",
+    "full":   "9999px"
+  },
+
+  "stroke": {
+    "s0": "0px",
+    "s1": "1px"
+  },
+
+  "iconSize": {
+    "xxs": "12px",
+    "xs":  "16px"
+  },
+
+  "semantic": {
+    "button":        "radius/medium",
+    "input":         "radius/medium",
+    "checkbox":      "radius/xsmall",
+    "radio":         "radius/full",
+    "switch-track":  "radius/large",
+    "card":          "radius/medium",
+    "section-card":  "radius/large",
+    "dropdown-menu": "radius/small",
+    "badge":         "radius/xsmall"
+  },
+
+  "_figma_tokens": {
+    "radius/none":   0,
+    "radius/xsmall": 4,
+    "radius/small":  6,
+    "radius/medium": 8,
+    "radius/large":  12,
+    "radius/full":   9999,
+    "stroke/s0":     0,
+    "stroke/s1":     1,
+    "icon-size/xxs": 12,
+    "icon-size/xs":  16
+  }
+}
