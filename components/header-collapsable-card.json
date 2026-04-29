@@ -1,0 +1,216 @@
+{
+  "name": "Header Collapsable Card",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "13855:4822",
+    "name": "HeaderCollapsableCard",
+    "type": "COMPONENT_SET"
+  },
+  "description": "Card header sub-component used inside Collapsable Card. Contains a heading, optional supporting text, and a collapse toggle icon button.",
+  "category": "Containers",
+  "componentProperties": {
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Collapsed",
+      "options": ["Collapsed", "Expanded"]
+    },
+    "Divider": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Dropdown": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Supporting Text": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    }
+  },
+  "variantAxes": {
+    "state": ["Collapsed", "Expanded"]
+  },
+  "variants": [
+    {
+      "id": "13854:4821",
+      "state": "Collapsed",
+      "description": "Header in collapsed state. Chevron points down to indicate the body can be expanded."
+    }
+  ],
+  "constraints": [
+    "Rounded only on top corners (tl + tr = 12px) — bottom corners are always square.",
+    "Divider renders as a 1px horizontal line at the bottom of the header, separating it from the card body.",
+    "Dropdown toggle uses SS-icon-button Secondary type with keyboard_arrow_down / keyboard_arrow_up icon."
+  ],
+  "props": {
+    "state": {
+      "type": "enum",
+      "default": "Collapsed",
+      "options": ["Collapsed", "Expanded"],
+      "description": "Collapsed shows chevron-down; Expanded shows chevron-up."
+    },
+    "divider": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a 1px divider below the header content, separating it from the card body."
+    },
+    "dropdown": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows the SS-icon-button toggle for collapsing or expanding the card."
+    },
+    "supportingText": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows sub-heading text below the title."
+    }
+  },
+  "layout": {
+    "outer": {
+      "direction": "VERTICAL",
+      "align": "CENTER",
+      "width": 567,
+      "padding": 0,
+      "radiusTopLeft": 12,
+      "radiusTopRight": 12,
+      "radiusBottomLeft": 0,
+      "radiusBottomRight": 0
+    },
+    "contentContainer": {
+      "direction": "HORIZONTAL",
+      "gap": 4,
+      "align": "CENTER",
+      "minHeight": 45,
+      "paddingX": 16,
+      "paddingY": 8
+    },
+    "textContainer": {
+      "direction": "VERTICAL",
+      "align": "START",
+      "justify": "CENTER",
+      "flex": "1"
+    },
+    "textStack": {
+      "direction": "VERTICAL",
+      "gap": 4
+    },
+    "dropdownSlot": {
+      "direction": "HORIZONTAL",
+      "align": "CENTER",
+      "alignSelf": "STRETCH"
+    },
+    "divider": {
+      "height": 1,
+      "width": "100%"
+    }
+  },
+  "children": {
+    "title": {
+      "type": "TEXT",
+      "characters": "Heading",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 14,
+      "fontWeight": 600,
+      "lineHeight": 100,
+      "letterSpacing": 0
+    },
+    "supportingText": {
+      "type": "TEXT",
+      "characters": "Subheading",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 100,
+      "letterSpacing": 0,
+      "note": "Renders only when supportingText=true"
+    },
+    "dropdownToggle": {
+      "type": "INSTANCE",
+      "name": "SS-icon-button",
+      "variant": { "Type": "Secondary", "State": "Enabled" },
+      "size": 28,
+      "icon": "keyboard_arrow_down",
+      "note": "Icon switches to keyboard_arrow_up when state=Expanded. Renders only when dropdown=true."
+    },
+    "divider": {
+      "type": "FRAME",
+      "height": 1,
+      "note": "Renders only when divider=true"
+    }
+  },
+  "tokens": {
+    "surface": "header/bg",
+    "title": "header/title",
+    "supporting-text": "header/supporting-text",
+    "divider": "header/divider",
+    "icon-dropdown": "header/icon-dropdown"
+  },
+  "spacing": {
+    "width": "567px",
+    "padding-x": "app-spacing/s16",
+    "padding-y": "app-spacing/s8",
+    "content-gap": "app-spacing/s4",
+    "text-gap": "app-spacing/s4",
+    "border-radius-top": "radius/large",
+    "border-radius-bottom": "radius/none"
+  },
+  "typography": {
+    "font-family": "typography/font/family",
+    "title": {
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "supporting": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
+    }
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json"
+  },
+  "usage": {
+    "do": [
+      "Use only as the header slot inside SS-collapsable-card",
+      "Always pair with a divider when the card body is expanded",
+      "Use the dropdown toggle to signal that the card body can be shown or hidden"
+    ],
+    "dont": [
+      "Don't use this header standalone outside of a collapsable card",
+      "Don't remove the chevron icon — it is the primary affordance for expand/collapse"
+    ]
+  },
+  "accessibility": {
+    "role": "button",
+    "aria": [
+      "aria-expanded (on the header or toggle button)",
+      "aria-controls (pointing to the card body id)",
+      "aria-labelledby (referencing the title node)"
+    ],
+    "keyboard": "Enter or Space on the header or toggle button collapses or expands the card body."
+  },
+  "examples": [
+    {
+      "label": "Collapsed with divider",
+      "props": { "state": "Collapsed", "divider": true, "supportingText": true, "dropdown": true },
+      "figmaVariantId": "13854:4821"
+    },
+    {
+      "label": "Collapsed no supporting text",
+      "props": { "state": "Collapsed", "divider": true, "supportingText": false, "dropdown": true },
+      "figmaVariantId": "13854:4821"
+    },
+    {
+      "label": "No divider",
+      "props": { "state": "Collapsed", "divider": false, "supportingText": true, "dropdown": true },
+      "figmaVariantId": "13854:4821"
+    }
+  ]
+}

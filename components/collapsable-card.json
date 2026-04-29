@@ -1,185 +1,259 @@
 {
   "name": "Collapsable Card",
-  "description": "Card container that can expand or collapse to show or hide its content section, used for grouping related form fields or information.",
-  "category": "Containers",
-  "variants": {
-    "state": [
-      "expanded",
-      "collapsed",
-      "inactive"
-    ],
-    "status": [
-      "default",
-      "active"
-    ]
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "13855:4939",
+    "name": "CollapsableCard",
+    "type": "COMPONENT_SET"
   },
-  "states": [
-    "expanded",
-    "collapsed",
-    "inactive"
+  "description": "Card container that can expand or collapse to show or hide its content section. Used for grouping related form fields or information in multi-step or sectioned admin layouts.",
+  "category": "Containers",
+  "componentProperties": {
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Expanded",
+      "options": ["Expanded", "Collapsed", "Inactive"]
+    },
+    "Status": {
+      "type": "VARIANT",
+      "defaultValue": "Active",
+      "options": ["Active", "Default"]
+    },
+    "Show Actions Footer": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    }
+  },
+  "variantAxes": {
+    "state": ["Expanded", "Collapsed", "Inactive"],
+    "status": ["Active", "Default"]
+  },
+  "constraints": [
+    "Only 3 valid state+status combinations: Expanded+Active, Collapsed+Active, Inactive+Default.",
+    "Status=Default only exists with State=Inactive. Status=Active exists with Expanded and Collapsed.",
+    "Body and footer only render in Expanded+Active. Collapsed and Inactive show header only.",
+    "Header is fully rounded (all 4 corners 12px) in Collapsed state. Top-only rounding in Expanded and Inactive.",
+    "Shadow (Shadow/sm) applies to Collapsed+Active and Inactive+Default variants only.",
+    "showActionsFooter is only relevant when state=Expanded."
+  ],
+  "variants": [
+    {
+      "id": "13855:4938",
+      "state": "Expanded",
+      "status": "Active",
+      "description": "Card is open. Header, body content slot, and optional footer are all visible.",
+      "shadow": false
+    },
+    {
+      "id": "13855:4940",
+      "state": "Collapsed",
+      "status": "Active",
+      "description": "Card is closed. Only the header is visible, fully rounded. Shadow indicates it is actionable.",
+      "shadow": true
+    },
+    {
+      "id": "13951:5626",
+      "state": "Inactive",
+      "status": "Default",
+      "description": "Card is not yet actionable. Header text is muted, toggle icon is disabled. Shadow indicates separation.",
+      "shadow": true
+    }
   ],
   "subComponents": {
     "headerCollapsableCard": {
-      "description": "Card header with title, optional supporting text, tags, and collapse toggle.",
-      "props": {
-        "divider": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows a divider below the header."
-        },
-        "supportingText": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows description text below the title."
-        },
-        "dropdown": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows a dropdown trigger in the header."
-        },
-        "tag1": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows the first tag."
-        },
-        "tag2": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows the second tag."
-        },
-        "tag3": {
-          "type": "boolean",
-          "default": true,
-          "description": "Shows the third tag."
-        }
-      },
-      "tokens": {
-        "surface": "header/bg",
-        "title": "header/title",
-        "supporting": "header/supporting-text",
-        "divider": "header/divider",
-        "tag": "header/tag-fg"
-      }
+      "ref": "./header-collapsable-card.json",
+      "figmaNodeId": "13855:4822"
     }
   },
   "props": {
     "state": {
       "type": "enum",
-      "default": "expanded",
-      "options": [
-        "expanded",
-        "collapsed",
-        "inactive"
-      ],
-      "description": "Controls whether the card body is visible, hidden, or disabled."
+      "default": "Expanded",
+      "options": ["Expanded", "Collapsed", "Inactive"],
+      "description": "Controls card visibility and interactability. Expanded shows full card; Collapsed shows header only; Inactive is not yet actionable."
     },
     "status": {
       "type": "enum",
-      "default": "default",
-      "options": [
-        "default",
-        "active"
-      ],
-      "description": "Active status adds a visual accent to indicate the card is in focus."
+      "default": "Active",
+      "options": ["Active", "Default"],
+      "description": "Active applies accent styling. Default (paired with Inactive state) applies muted styling."
     },
     "showActionsFooter": {
       "type": "boolean",
       "default": true,
-      "description": "Shows an action footer at the bottom of the card."
+      "description": "Shows the action footer with Cancel and Save buttons. Only relevant when state=Expanded."
+    }
+  },
+  "layout": {
+    "outer": {
+      "direction": "VERTICAL",
+      "align": "CENTER",
+      "width": 567,
+      "radius": 12,
+      "strokeWidth": 1,
+      "overflow": "clip"
+    },
+    "header": {
+      "ref": "header-collapsable-card",
+      "radiusExpanded": { "topLeft": 12, "topRight": 12, "bottomLeft": 0, "bottomRight": 0 },
+      "radiusCollapsed": { "all": 12 },
+      "radiusInactive": { "all": 12 }
+    },
+    "body": {
+      "height": 243,
+      "width": "100%",
+      "note": "243px is the Figma placeholder height. Actual height is determined by content."
+    },
+    "footer": {
+      "direction": "VERTICAL",
+      "radiusBottomLeft": 12,
+      "radiusBottomRight": 12,
+      "dividerHeight": 1,
+      "contentPaddingX": 16,
+      "contentPaddingY": 12,
+      "actionsHeight": 28,
+      "actionsGap": 8
+    }
+  },
+  "children": {
+    "header": {
+      "type": "INSTANCE",
+      "name": "header-Collapsable-card",
+      "ref": "./header-collapsable-card.json"
+    },
+    "body": {
+      "type": "SLOT",
+      "name": "Body",
+      "note": "Free content slot for form fields or any page content. Only renders in Expanded+Active."
+    },
+    "footer": {
+      "note": "Only renders in Expanded+Active when showActionsFooter=true.",
+      "divider": { "type": "FRAME", "height": 1 },
+      "leadingActions": {
+        "type": "SLOT",
+        "name": "Leading actions",
+        "note": "Empty by default — reserved for leading action buttons."
+      },
+      "trailingActions": {
+        "cancelButton": {
+          "type": "INSTANCE",
+          "name": "SS-button",
+          "variant": { "Hierarchy": "Secondary" },
+          "label": "Cancel"
+        },
+        "saveButton": {
+          "type": "INSTANCE",
+          "name": "SS-button",
+          "variant": { "Hierarchy": "Primary" },
+          "label": "Save"
+        }
+      }
     }
   },
   "tokens": {
+    "card": {
+      "border": "card/border",
+      "border-active": "card/border-active"
+    },
     "header": {
       "surface": "header/bg",
       "title": "header/title",
       "supporting-text": "header/supporting-text",
-      "icon": "header/icon",
       "icon-dropdown": "header/icon-dropdown",
-      "divider": "header/divider",
-      "tag-fg": "header/tag-fg",
-      "tag-bg": "header/tag-bg",
-      "tag-border": "header/tag-border"
+      "divider": "header/divider"
     },
     "body": {
       "surface": "card/bg"
     },
     "footer": {
       "surface": "action-footer/bg",
-      "divider": "action-footer/divider"
+      "divider": "action-footer/divider",
+      "cancelButton": "button/secondary/fg",
+      "saveButton": "button/primary/fg"
     },
-    "card": {
-      "border": "card/border",
-      "border-active": "card/border-active"
+    "inactive": {
+      "text": "color/gray/400",
+      "icon": "button/secondary/bg-disabled"
     }
   },
   "spacing": {
     "width": "567px",
+    "border-radius": "radius/large",
+    "border-width": "stroke/s1",
     "header-padding-x": "app-spacing/s16",
     "header-padding-y": "app-spacing/s8",
     "body-padding": "app-spacing/s16",
-    "footer-padding": "app-spacing/s12",
-    "gap": "app-spacing/s0",
-    "border-radius": "radius/medium",
-    "border-width": "stroke/s1"
+    "footer-padding-x": "app-spacing/s16",
+    "footer-padding-y": "app-spacing/s12",
+    "footer-actions-gap": "app-spacing/s8",
+    "gap": "app-spacing/s0"
   },
   "typography": {
     "font-family": "typography/font/family",
     "title": {
-      "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/semibold(600)"
+      "font-size": "typography/font-size/sm",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 100,
+      "letter-spacing": 0
     },
     "supporting": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/regular(400)"
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
     }
+  },
+  "effects": {
+    "shadow": "Shadow/sm",
+    "note": "Applied to Collapsed+Active and Inactive+Default variants only. Two layered drop shadows: rgba(16,24,40,0.06) offset(0,1) radius 2 + rgba(16,24,40,0.10) offset(0,1) radius 3."
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json",
+    "borders": "../tokens/borders.json"
   },
   "usage": {
     "do": [
       "Use to group related form fields or content that can be shown/hidden",
-      "Use active status to indicate the currently focused card in a multi-card flow",
-      "Use inactive state for cards that are not yet actionable"
+      "Use Active status to indicate the currently focused card in a multi-card flow",
+      "Use Inactive state for cards that are not yet actionable in a sequential flow"
     ],
     "dont": [
       "Don't nest collapsable cards inside each other",
-      "Don't use for content that should always be visible",
+      "Don't use for content that should always be visible — use Section Card instead",
       "Don't mix expanded and collapsed states without a clear visual hierarchy"
     ]
   },
   "accessibility": {
     "role": "region",
     "aria": [
-      "aria-expanded",
-      "aria-controls (body section)",
-      "aria-labelledby (header title)"
+      "aria-expanded (on the header toggle)",
+      "aria-controls (pointing to the body section id)",
+      "aria-labelledby (referencing the header title node)"
     ],
     "keyboard": "Enter or Space on the header toggles expand/collapse. Tab moves to interactive content within the body."
   },
   "examples": [
     {
-      "label": "Expanded default",
-      "props": {
-        "state": "expanded",
-        "status": "default"
-      }
+      "label": "Expanded active",
+      "props": { "state": "Expanded", "status": "Active", "showActionsFooter": true },
+      "figmaVariantId": "13855:4938"
+    },
+    {
+      "label": "Expanded no footer",
+      "props": { "state": "Expanded", "status": "Active", "showActionsFooter": false },
+      "figmaVariantId": "13855:4938"
     },
     {
       "label": "Collapsed",
-      "props": {
-        "state": "collapsed"
-      }
-    },
-    {
-      "label": "Active expanded",
-      "props": {
-        "state": "expanded",
-        "status": "active"
-      }
+      "props": { "state": "Collapsed", "status": "Active" },
+      "figmaVariantId": "13855:4940"
     },
     {
       "label": "Inactive",
-      "props": {
-        "state": "inactive"
-      }
+      "props": { "state": "Inactive", "status": "Default" },
+      "figmaVariantId": "13951:5626"
     }
   ]
 }

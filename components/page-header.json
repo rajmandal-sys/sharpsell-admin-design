@@ -1,11 +1,32 @@
 {
   "name": "Page Header",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "13763:4159",
+    "name": "SS-header-page",
+    "type": "COMPONENT"
+  },
   "description": "Top-level page header with breadcrumb navigation, page title, optional badge, supporting text, and action buttons.",
   "category": "Navigation",
-  "variants": {},
-  "states": [
-    "default"
-  ],
+  "componentProperties": {
+    "Arrow Back": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Badge": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Supporting Text": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Actions": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    }
+  },
+  "variants": [],
   "props": {
     "arrowBack": {
       "type": "boolean",
@@ -28,35 +49,182 @@
       "description": "Shows action buttons on the right side of the header."
     }
   },
+  "layout": {
+    "outer": {
+      "direction": "VERTICAL",
+      "gap": 4,
+      "width": 1014
+    },
+    "breadcrumbTrail": {
+      "direction": "HORIZONTAL",
+      "gap": 8,
+      "align": "CENTER"
+    },
+    "headerRow": {
+      "direction": "HORIZONTAL",
+      "gap": 8,
+      "align": "START",
+      "minHeight": 28
+    },
+    "textGroup": {
+      "direction": "HORIZONTAL",
+      "gap": 2,
+      "align": "START"
+    },
+    "backIconWrapper": {
+      "paddingTop": 2,
+      "width": 20
+    },
+    "titleSupportingStack": {
+      "direction": "VERTICAL",
+      "gap": 2
+    },
+    "titleRow": {
+      "direction": "HORIZONTAL",
+      "gap": 4,
+      "height": 24,
+      "align": "CENTER"
+    },
+    "actionsSlot": {
+      "direction": "HORIZONTAL",
+      "gap": 8,
+      "align": "CENTER"
+    }
+  },
+  "children": {
+    "breadcrumbTrail": {
+      "type": "INSTANCE",
+      "name": "Breadcrumb trail",
+      "note": "Composed of breadcrumb items (home icon, separators, SS-button-link for active items, plain text for inactive items)"
+    },
+    "backIcon": {
+      "type": "INSTANCE",
+      "name": "arrow_back",
+      "size": 20,
+      "note": "Renders only when arrowBack=true"
+    },
+    "title": {
+      "type": "TEXT",
+      "characters": "Pipelines",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 16,
+      "fontWeight": 600,
+      "lineHeight": 24,
+      "letterSpacing": 0
+    },
+    "badge": {
+      "type": "FRAME",
+      "name": "Badge",
+      "paddingX": 8,
+      "paddingY": 2,
+      "radius": 16,
+      "note": "Renders only when badge=true",
+      "text": {
+        "type": "TEXT",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      }
+    },
+    "supportingText": {
+      "type": "TEXT",
+      "characters": "Manage and track all pipelines across their lifecycle",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 100,
+      "letterSpacing": 0,
+      "note": "Renders only when supportingText=true"
+    },
+    "actions": {
+      "type": "FRAME",
+      "name": "Actions",
+      "note": "Renders only when actions=true. Contains SS-button-link and SS-button instances.",
+      "slots": [
+        { "type": "INSTANCE", "name": "SS-button-link", "label": "Cancel" },
+        { "type": "INSTANCE", "name": "SS-button", "hierarchy": "Secondary", "label": "Cancel" },
+        { "type": "INSTANCE", "name": "SS-button", "hierarchy": "Primary", "label": "Save" }
+      ]
+    }
+  },
   "tokens": {
     "title": "page-header/title",
     "supporting-text": "page-header/supporting-text",
     "icon-back": "page-header/icon-back",
     "divider": "page-header/divider",
+    "badge": {
+      "bg": "page-header/badge-bg",
+      "fg": "page-header/badge-fg"
+    },
     "breadcrumb": {
       "item": "breadcrumb/item-fg",
       "current": "breadcrumb/current-fg",
       "separator": "breadcrumb/separator-fg"
+    },
+    "actions": {
+      "buttonLink": "button/link/fg",
+      "secondaryBg": "button/secondary/bg",
+      "secondaryBorder": "button/secondary/border",
+      "secondaryFg": "button/secondary/fg",
+      "primaryBg": "button/primary/bg",
+      "primaryBorder": "button/primary/border",
+      "primaryFg": "button/primary/fg"
     }
   },
   "spacing": {
-    "padding-x": "app-spacing/s0",
-    "padding-y": "app-spacing/s0",
+    "width": "1014px",
+    "outer-gap": "app-spacing/s4",
     "title-row-gap": "app-spacing/s8",
+    "text-group-gap": "app-spacing/s2",
     "breadcrumb-gap": "app-spacing/s8",
-    "section-gap": "app-spacing/s4",
-    "icon-size": "icon-size/xs"
+    "actions-gap": "app-spacing/s8",
+    "back-icon-size": "icon-size/sm",
+    "badge-padding-x": "app-spacing/s8",
+    "badge-padding-y": "app-spacing/s2",
+    "badge-radius": "16px"
   },
   "typography": {
     "font-family": "typography/font/family",
     "title": {
-      "font-size": "typography/font-size/sm",
-      "font-weight": "typography/font-weight/semibold(600)"
+      "font-size": "typography/font-size/md",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 24,
+      "letter-spacing": 0
     },
     "supporting": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/regular(400)"
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "badge": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "breadcrumb-active": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "breadcrumb-inactive": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/medium(500)",
+      "line-height": 100,
+      "letter-spacing": 0
     }
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json"
   },
   "usage": {
     "do": [
@@ -80,28 +248,23 @@
   "examples": [
     {
       "label": "Full header",
-      "props": {
-        "arrowBack": true,
-        "badge": true,
-        "supportingText": true,
-        "actions": true
-      }
+      "props": { "arrowBack": true, "badge": true, "supportingText": true, "actions": true },
+      "figmaVariantId": "13763:4159"
     },
     {
       "label": "Minimal (title only)",
-      "props": {
-        "arrowBack": false,
-        "badge": false,
-        "supportingText": false,
-        "actions": false
-      }
+      "props": { "arrowBack": false, "badge": false, "supportingText": false, "actions": false },
+      "figmaVariantId": "13763:4159"
     },
     {
-      "label": "With actions",
-      "props": {
-        "arrowBack": true,
-        "actions": true
-      }
+      "label": "With actions, no badge",
+      "props": { "arrowBack": true, "badge": false, "supportingText": true, "actions": true },
+      "figmaVariantId": "13763:4159"
+    },
+    {
+      "label": "No back arrow",
+      "props": { "arrowBack": false, "badge": true, "supportingText": true, "actions": true },
+      "figmaVariantId": "13763:4159"
     }
   ]
 }

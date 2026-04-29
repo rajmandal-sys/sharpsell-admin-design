@@ -1,0 +1,372 @@
+{
+  "name": "Base Layout",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "14384:158729",
+    "name": "Pipelines details view",
+    "note": "Figma frame name reflects one screen instance. The structural shell (header + sidebar + content slot) is the base layout for every admin screen."
+  },
+  "description": "The application chrome that wraps every admin screen. Consists of a sticky top header, a fixed left sidebar, and an empty content slot. All screens are built by placing their page-level content inside the content region.",
+  "category": "Layouts",
+  "viewport": {
+    "min": "1366px",
+    "reference": "1366px"
+  },
+
+  "regions": {
+    "header-navigation": {
+      "figmaNodeId": "14384:158730",
+      "description": "Global top bar. Contains the hamburger toggle, SharpSell Admin logo, divider, client logo placeholder, and the signed-in user avatar with name and role.",
+      "position": "top",
+      "width": "full",
+      "sticky": true,
+      "zIndex": 2,
+      "surface": "color/base/white",
+      "effect": "Shadow/sm",
+      "padding": {
+        "top": "app-spacing/s4",
+        "right": "app-spacing/s4",
+        "bottom": "app-spacing/s4",
+        "left": "app-spacing/s0"
+      },
+      "children": {
+        "container": {
+          "description": "Left side of the header — grows to fill available space.",
+          "direction": "HORIZONTAL",
+          "gap": "app-spacing/s16",
+          "align": "CENTER",
+          "padding": {
+            "left": "app-spacing/s8",
+            "right": "app-spacing/s32"
+          },
+          "children": {
+            "hamburgerMenu": {
+              "type": "INSTANCE",
+              "name": "ApplicationNavMenuButton",
+              "size": 24,
+              "padding": "app-spacing/s8",
+              "radius": "radius/medium",
+              "surface": "color/base/white"
+            },
+            "logosContainer": {
+              "description": "SharpSell logo, a 1px divider, and the client logo placeholder.",
+              "direction": "HORIZONTAL",
+              "gap": "app-spacing/s16",
+              "align": "CENTER",
+              "children": {
+                "sharpsellAdminLogo": {
+                  "type": "IMAGE",
+                  "width": "131.759px",
+                  "height": "20px",
+                  "note": "SVG wordmark + 'Admin' text. Fixed dimensions."
+                },
+                "divider": {
+                  "type": "FRAME",
+                  "width": "1px",
+                  "height": "fill",
+                  "surface": "color/gray/500"
+                },
+                "clientLogoContainer": {
+                  "type": "FRAME",
+                  "width": "215px",
+                  "height": "30px",
+                  "surface": "color/gray/200",
+                  "note": "Placeholder for the client's logo. Replace with a real image at integration time."
+                }
+              }
+            }
+          }
+        },
+        "avatarLabelGroup": {
+          "description": "Right side — signed-in user avatar, full name, and role badge.",
+          "direction": "HORIZONTAL",
+          "gap": "app-spacing/s12",
+          "align": "CENTER",
+          "padding": {
+            "x": "app-spacing/s12"
+          },
+          "radius": "radius/large",
+          "children": {
+            "avatar": {
+              "type": "FRAME",
+              "size": "32px",
+              "radius": "200px",
+              "surface": "color/gray/100",
+              "border": "color/gray/200",
+              "borderWidth": "1px",
+              "icon": "person",
+              "iconSize": "24px"
+            },
+            "textStack": {
+              "direction": "VERTICAL",
+              "children": {
+                "name": {
+                  "type": "TEXT",
+                  "example": "Olivia Rhye",
+                  "fontSize": "typography/font-size/xs",
+                  "fontWeight": "typography/font-weight/semibold(600)",
+                  "color": "color/gray/700"
+                },
+                "role": {
+                  "type": "TEXT",
+                  "example": "super-admin, app-user",
+                  "fontSize": "typography/font-size/xs",
+                  "fontWeight": "typography/font-weight/regular(400)",
+                  "lineHeight": "18px",
+                  "color": "color/gray/600"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "sidebar-navigation": {
+      "figmaNodeId": "14384:158732",
+      "description": "Left navigation rail. Fixed width. Scrolls independently from content. Nav items at the top; Policies link pinned to the bottom.",
+      "position": "left",
+      "width": "320px",
+      "height": "fill",
+      "sticky": true,
+      "zIndex": 1,
+      "surface": "color/base/white",
+      "border": {
+        "side": "right",
+        "width": "1px",
+        "color": "color/gray/200"
+      },
+      "children": {
+        "navSection": {
+          "figmaNodeId": "I14384:158732;1161:8595",
+          "description": "Primary navigation groups. Stacked vertically, separated by gap-s24.",
+          "direction": "VERTICAL",
+          "gap": "app-spacing/s24",
+          "padding": {
+            "top": "app-spacing/s16",
+            "x": "app-spacing/s16"
+          },
+          "children": {
+            "navGroup": {
+              "description": "A single nav group containing nav items.",
+              "direction": "VERTICAL",
+              "gap": "app-spacing/s4",
+              "children": {
+                "navItem": {
+                  "description": "A single nav item — icon + label, optional chevron for expandable items.",
+                  "direction": "HORIZONTAL",
+                  "gap": "app-spacing/s8",
+                  "align": "CENTER",
+                  "padding": {
+                    "x": "app-spacing/s12",
+                    "y": "app-spacing/s8"
+                  },
+                  "radius": "radius/medium",
+                  "states": {
+                    "default": {
+                      "surface": "color/base/white",
+                      "labelColor": "color/gray/700"
+                    },
+                    "active": {
+                      "surface": "color/gray/100",
+                      "labelColor": "color/gray/700"
+                    }
+                  },
+                  "children": {
+                    "icon": {
+                      "type": "INSTANCE",
+                      "size": "24px",
+                      "style": "Outlined"
+                    },
+                    "label": {
+                      "type": "TEXT",
+                      "fontSize": "typography/font-size/md",
+                      "fontWeight": "typography/font-weight/semibold(600)",
+                      "flex": 1
+                    },
+                    "chevron": {
+                      "type": "INSTANCE",
+                      "name": "keyboard_arrow_down",
+                      "size": "20px",
+                      "note": "Only shown on expandable (dropdown) nav items."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "footerSection": {
+          "figmaNodeId": "I14384:158732;1161:8605",
+          "description": "Footer nav group — pinned to the bottom of the sidebar.",
+          "direction": "VERTICAL",
+          "padding": {
+            "bottom": "app-spacing/s16",
+            "x": "app-spacing/s16"
+          },
+          "children": {
+            "policiesItem": {
+              "label": "Policies",
+              "icon": "lock",
+              "surface": "color/base/white",
+              "labelColor": "color/gray/700"
+            }
+          }
+        }
+      },
+      "navItems": [
+        { "label": "Home", "icon": "home", "type": "flat" },
+        { "label": "Company Settings", "icon": "settings", "type": "dropdown" },
+        { "label": "User Management", "icon": "people_alt", "type": "dropdown" },
+        { "label": "Plugins", "icon": "grid_view", "type": "dropdown" },
+        { "label": "LMS", "icon": "person_search", "type": "dropdown" },
+        { "label": "Products master", "icon": "category", "type": "dropdown" },
+        { "label": "Enablement Settings", "icon": "build", "type": "flat" },
+        { "label": "Analytics", "icon": "bar_chart", "type": "flat" }
+      ]
+    },
+
+    "content": {
+      "figmaNodeId": "14384:158733",
+      "description": "Empty content slot. This is the only region that changes per screen. Place the screen's page-header and main content here.",
+      "position": "right-of-sidebar",
+      "width": "calc(100vw - 320px)",
+      "height": "fill",
+      "scrollable": true,
+      "surface": "color/gray/100",
+      "padding": "app-spacing/s16",
+      "children": {
+        "main": {
+          "figmaNodeId": "14384:158735",
+          "description": "Top-level content wrapper inside the content slot.",
+          "direction": "VERTICAL",
+          "width": "full",
+          "children": {
+            "slot": {
+              "figmaNodeId": "14384:158736",
+              "name": "Steps",
+              "type": "SLOT",
+              "note": "Empty in the base layout. Every screen fills this slot with its own page-header + content."
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "tokens": {
+    "surface": {
+      "page": "color/gray/100",
+      "header": "color/base/white",
+      "sidebar": "color/base/white",
+      "content": "color/gray/100"
+    },
+    "border": {
+      "sidebar": "color/gray/200",
+      "clientLogoContainer": "color/gray/200",
+      "avatar": "color/gray/200",
+      "headerDivider": "color/gray/500"
+    },
+    "text": {
+      "navLabel": "color/gray/700",
+      "avatarName": "color/gray/700",
+      "avatarRole": "color/gray/600"
+    },
+    "navItem": {
+      "surface-default": "color/base/white",
+      "surface-active": "color/gray/100"
+    },
+    "effect": {
+      "header": "Shadow/sm"
+    }
+  },
+
+  "spacing": {
+    "sidebar-width": "320px",
+    "header-padding-x-left": "app-spacing/s0",
+    "header-padding-x-right": "app-spacing/s4",
+    "header-padding-y": "app-spacing/s4",
+    "header-container-padding-left": "app-spacing/s8",
+    "header-container-padding-right": "app-spacing/s32",
+    "logos-gap": "app-spacing/s16",
+    "avatar-group-padding-x": "app-spacing/s12",
+    "avatar-group-gap": "app-spacing/s12",
+    "sidebar-nav-padding-top": "app-spacing/s16",
+    "sidebar-nav-padding-x": "app-spacing/s16",
+    "sidebar-nav-group-gap": "app-spacing/s24",
+    "sidebar-nav-item-gap": "app-spacing/s4",
+    "nav-item-padding-x": "app-spacing/s12",
+    "nav-item-padding-y": "app-spacing/s8",
+    "nav-item-content-gap": "app-spacing/s8",
+    "sidebar-footer-padding-bottom": "app-spacing/s16",
+    "sidebar-footer-padding-x": "app-spacing/s16",
+    "content-padding": "app-spacing/s16"
+  },
+
+  "typography": {
+    "navItem": {
+      "font-size": "typography/font-size/md",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": "normal"
+    },
+    "avatarName": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": "normal"
+    },
+    "avatarRole": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": "18px"
+    }
+  },
+
+  "effects": {
+    "header-shadow": "Shadow/sm",
+    "note": "Shadow/sm = two layered drop shadows: rgba(16,24,40,0.10) offset(0,1) radius 3 + rgba(16,24,40,0.06) offset(0,1) radius 2. Applied to the header only."
+  },
+
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json",
+    "borders": "../tokens/borders.json"
+  },
+
+  "behavior": {
+    "scroll": "Sidebar and header remain fixed. Only the content slot scrolls vertically.",
+    "hamburger": "Hamburger menu button toggles the sidebar open/closed (functionality defined at implementation).",
+    "activeNav": "The nav item matching the current route receives surface=color/gray/100 background.",
+    "expandableNav": "Nav items with type=dropdown show a keyboard_arrow_down chevron. Clicking expands sub-items inline.",
+    "clientLogo": "Client logo container is a 215×30px placeholder. Replace with the actual client logo at integration time."
+  },
+
+  "constraints": [
+    "The content slot (Steps) is always empty in the base layout — never put screen content in the layout template.",
+    "Header z-index (2) must stay above sidebar z-index (1) so the header shadow overlaps the sidebar top edge.",
+    "Do not change the sidebar width — 320px is fixed across the desktop range.",
+    "Shadow/sm applies to the header only. The sidebar uses a 1px border, not a shadow."
+  ],
+
+  "usage": {
+    "do": [
+      "Use this layout as the outer shell for every admin screen",
+      "Place all screen-specific content (page-header, cards, tables) inside the content slot only",
+      "Set the active nav item to match the current route"
+    ],
+    "dont": [
+      "Don't modify the header or sidebar regions per-screen — they are global chrome",
+      "Don't nest this layout inside another layout",
+      "Don't add padding or margin to the content slot itself — use the layout's built-in padding"
+    ]
+  },
+
+  "examples": [
+    {
+      "label": "LMS screen active",
+      "figmaNodeId": "14384:158729",
+      "activeNavItem": "LMS",
+      "contentSlot": "empty (base state)"
+    }
+  ]
+}

@@ -36,6 +36,7 @@ All SharpSell UI components. Each has its own JSON spec file.
 | Component | File | Description |
 |---|---|---|
 | Collapsable Card | [`collapsable-card.json`](./collapsable-card.json) | Expandable/collapsible content card |
+| Header Collapsable Card | [`header-collapsable-card.json`](./header-collapsable-card.json) | Header sub-component used inside Collapsable Card |
 | Section Card | [`section-card.json`](./section-card.json) | Expandable page section with footer |
 | Footer | [`footer.json`](./footer.json) | Action bar for modals, cards, and sections |
 

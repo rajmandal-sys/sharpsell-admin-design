@@ -1,8 +1,75 @@
 {
   "name": "Button",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "12628:107776",
+    "name": "SS-button",
+    "type": "COMPONENT_SET",
+    "key": "58166944949d2c0f59c57a9b3e41ec85f7c2a369",
+    "size": {
+      "x": 118,
+      "y": 210,
+      "width": 569,
+      "height": 372
+    }
+  },
   "description": "Triggers a single user action in compact admin interfaces.",
   "category": "Actions",
-  "variants": {
+  "componentProperties": {
+    "Icon leading": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Icon trailing": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Icon leading swap": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "7347:250084",
+      "preferredComponentSetKey": "f919470e61fdf78170dc48bfcc15c4c5f8c1a6ae"
+    },
+    "Icon trailing swap": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": "7347:250084",
+      "preferredComponentSetKey": "f919470e61fdf78170dc48bfcc15c4c5f8c1a6ae"
+    },
+    "Hierarchy": {
+      "type": "VARIANT",
+      "defaultValue": "Primary",
+      "options": [
+        "Primary",
+        "Secondary"
+      ]
+    },
+    "Icon": {
+      "type": "VARIANT",
+      "defaultValue": "With Text",
+      "options": [
+        "With Text"
+      ]
+    },
+    "Destructive": {
+      "type": "VARIANT",
+      "defaultValue": "False",
+      "options": [
+        "False",
+        "True"
+      ]
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Enabled",
+      "options": [
+        "Enabled",
+        "Hover",
+        "Pressed",
+        "Focused",
+        "Disabled"
+      ]
+    }
+  },
+  "variantAxes": {
     "hierarchy": [
       "primary",
       "secondary"
@@ -13,17 +80,21 @@
     "destructive": [
       false,
       true
+    ],
+    "state": [
+      "enabled",
+      "hover",
+      "pressed",
+      "focused",
+      "disabled"
     ]
   },
+  "constraints": [
+    "Use the variants array as the source of truth for valid Figma combinations.",
+    "Destructive true is represented only with secondary hierarchy in the source component set."
+  ],
   "sizes": [
     "default"
-  ],
-  "states": [
-    "enabled",
-    "hover",
-    "pressed",
-    "focused",
-    "disabled"
   ],
   "props": {
     "hierarchy": {
@@ -38,7 +109,7 @@
     "destructive": {
       "type": "boolean",
       "default": false,
-      "description": "Applies error styling for irreversible actions like delete or revoke."
+      "description": "Applies error styling for irreversible actions like delete or revoke. Valid only with secondary hierarchy in the Figma source."
     },
     "iconLeading": {
       "type": "boolean",
@@ -47,7 +118,8 @@
     },
     "iconLeadingSwap": {
       "type": "instance-swap",
-      "default": null,
+      "default": "7347:250084",
+      "preferredComponentSetKey": "f919470e61fdf78170dc48bfcc15c4c5f8c1a6ae",
       "description": "Icon instance to render in the leading slot."
     },
     "iconTrailing": {
@@ -57,7 +129,8 @@
     },
     "iconTrailingSwap": {
       "type": "instance-swap",
-      "default": null,
+      "default": "7347:250084",
+      "preferredComponentSetKey": "f919470e61fdf78170dc48bfcc15c4c5f8c1a6ae",
       "description": "Icon instance to render in the trailing slot."
     },
     "disabled": {
@@ -66,6 +139,259 @@
       "description": "Prevents interaction."
     }
   },
+  "layout": {
+    "height": 28,
+    "padding": {
+      "left": 12,
+      "right": 12,
+      "top": 6,
+      "bottom": 6
+    },
+    "gap": 4,
+    "radius": 8,
+    "strokeWidth": 1,
+    "direction": "HORIZONTAL",
+    "align": "CENTER",
+    "clipsContent": true
+  },
+  "children": {
+    "iconLeading": {
+      "type": "INSTANCE",
+      "name": "Icon Leading",
+      "mainComponentId": "7347:250084",
+      "mainComponentName": "Style=Outlined",
+      "size": 16
+    },
+    "text": {
+      "type": "TEXT",
+      "characters": "Button CTA",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 12,
+      "fontWeight": 600,
+      "lineHeight": "AUTO",
+      "letterSpacing": 0
+    },
+    "iconTrailing": {
+      "type": "INSTANCE",
+      "name": "Icon Trailing",
+      "mainComponentId": "7347:250084",
+      "mainComponentName": "Style=Outlined",
+      "size": 16
+    }
+  },
+  "variants": [
+    {
+      "id": "12628:107670",
+      "hierarchy": "Primary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Enabled",
+      "x": 20,
+      "y": 20,
+      "width": 131,
+      "height": 28,
+      "bg": "button/primary/bg",
+      "border": "button/primary/border",
+      "fg": "button/primary/fg"
+    },
+    {
+      "id": "12628:107764",
+      "hierarchy": "Primary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Hover",
+      "x": 20,
+      "y": 96,
+      "width": 131,
+      "height": 28,
+      "bg": "button/primary/bg-hover",
+      "border": "button/primary/border-hover",
+      "fg": "button/primary/fg"
+    },
+    {
+      "id": "12906:2800",
+      "hierarchy": "Primary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Pressed",
+      "x": 20,
+      "y": 172,
+      "width": 131,
+      "height": 28,
+      "bg": "button/primary/bg-pressed",
+      "border": "button/primary/border-pressed",
+      "fg": "button/primary/fg"
+    },
+    {
+      "id": "12628:107765",
+      "hierarchy": "Primary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Focused",
+      "x": 20,
+      "y": 248,
+      "width": 131,
+      "height": 28,
+      "bg": "button/primary/bg",
+      "border": "button/primary/border-focus",
+      "fg": "button/primary/fg"
+    },
+    {
+      "id": "12628:107766",
+      "hierarchy": "Primary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Disabled",
+      "x": 20,
+      "y": 324,
+      "width": 131,
+      "height": 28,
+      "bg": "button/primary/bg-disabled",
+      "border": "button/primary/border-disabled",
+      "fg": "button/primary/fg-disabled"
+    },
+    {
+      "id": "12628:107756",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Enabled",
+      "x": 187,
+      "y": 20,
+      "width": 131,
+      "height": 28,
+      "bg": "button/secondary/bg",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "12628:107745",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Hover",
+      "x": 187,
+      "y": 96,
+      "width": 131,
+      "height": 28,
+      "bg": "button/secondary/bg-hover",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "12906:2812",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Pressed",
+      "x": 187,
+      "y": 172,
+      "width": 131,
+      "height": 28,
+      "bg": "button/secondary/bg-pressed",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "12628:107744",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Focused",
+      "x": 187,
+      "y": 248,
+      "width": 131,
+      "height": 28,
+      "bg": "button/secondary/bg",
+      "border": "button/secondary/border-focus",
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "12628:107759",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": false,
+      "state": "Disabled",
+      "x": 187,
+      "y": 324,
+      "width": 131,
+      "height": 28,
+      "bg": "button/secondary/bg-disabled",
+      "border": "button/secondary/border-disabled",
+      "fg": "button/secondary/fg-disabled"
+    },
+    {
+      "id": "12728:2844",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": true,
+      "state": "Enabled",
+      "x": 354,
+      "y": 20,
+      "width": 131,
+      "height": 28,
+      "bg": "button/destructive/bg",
+      "border": "button/destructive/border",
+      "fg": "button/destructive/fg"
+    },
+    {
+      "id": "12728:2856",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": true,
+      "state": "Hover",
+      "x": 354,
+      "y": 96,
+      "width": 131,
+      "height": 28,
+      "bg": "button/destructive/bg-hover",
+      "border": "button/destructive/border",
+      "fg": "button/destructive/fg-hover"
+    },
+    {
+      "id": "12906:2816",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": true,
+      "state": "Pressed",
+      "x": 354,
+      "y": 172,
+      "width": 131,
+      "height": 28,
+      "bg": "button/destructive/bg-pressed",
+      "border": "button/destructive/border",
+      "fg": "button/destructive/fg-hover"
+    },
+    {
+      "id": "12728:2852",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": true,
+      "state": "Focused",
+      "x": 354,
+      "y": 248,
+      "width": 131,
+      "height": 28,
+      "bg": "button/destructive/bg",
+      "border": "button/destructive/border-focus",
+      "fg": "button/destructive/fg"
+    },
+    {
+      "id": "12728:2848",
+      "hierarchy": "Secondary",
+      "icon": "With Text",
+      "destructive": true,
+      "state": "Disabled",
+      "x": 354,
+      "y": 324,
+      "width": 131,
+      "height": 28,
+      "bg": "button/destructive/bg-disabled",
+      "border": "button/destructive/border-disabled",
+      "fg": "button/destructive/fg-disabled"
+    }
+  ],
   "tokens": {
     "primary": {
       "surface": {
@@ -76,6 +402,9 @@
       },
       "text": {
         "enabled": "button/primary/fg",
+        "hover": "button/primary/fg",
+        "pressed": "button/primary/fg",
+        "focus": "button/primary/fg",
         "disabled": "button/primary/fg-disabled"
       },
       "border": {
@@ -96,10 +425,14 @@
       "text": {
         "enabled": "button/secondary/fg",
         "hover": "button/secondary/fg-hover",
+        "pressed": "button/secondary/fg-hover",
+        "focus": "button/secondary/fg",
         "disabled": "button/secondary/fg-disabled"
       },
       "border": {
         "enabled": "button/secondary/border",
+        "hover": "button/secondary/border",
+        "pressed": "button/secondary/border",
         "focus": "button/secondary/border-focus",
         "disabled": "button/secondary/border-disabled"
       }
@@ -114,10 +447,14 @@
       "text": {
         "enabled": "button/destructive/fg",
         "hover": "button/destructive/fg-hover",
+        "pressed": "button/destructive/fg-hover",
+        "focus": "button/destructive/fg",
         "disabled": "button/destructive/fg-disabled"
       },
       "border": {
         "enabled": "button/destructive/border",
+        "hover": "button/destructive/border",
+        "pressed": "button/destructive/border",
         "focus": "button/destructive/border-focus",
         "disabled": "button/destructive/border-disabled"
       }
@@ -135,7 +472,15 @@
   "typography": {
     "font-family": "typography/font/family",
     "font-size": "typography/font-size/xs",
-    "font-weight": "typography/font-weight/semibold(600)"
+    "font-weight": "typography/font-weight/semibold(600)",
+    "line-height": "AUTO",
+    "letter-spacing": 0
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "borders": "../tokens/borders.json",
+    "typography": "../tokens/typography.json"
   },
   "usage": {
     "do": [
@@ -145,8 +490,8 @@
     ],
     "dont": [
       "Don't place two Primary buttons side by side",
-      "Don't use button for navigation — use a link instead",
-      "Don't truncate button labels — shorten the copy instead"
+      "Don't use button for navigation - use a link instead",
+      "Don't truncate button labels - shorten the copy instead"
     ]
   },
   "accessibility": {
@@ -163,42 +508,48 @@
       "props": {
         "hierarchy": "primary",
         "destructive": false
-      }
+      },
+      "figmaVariantId": "12628:107670"
     },
     {
       "label": "Secondary default",
       "props": {
         "hierarchy": "secondary",
         "destructive": false
-      }
+      },
+      "figmaVariantId": "12628:107756"
     },
     {
       "label": "Secondary destructive",
       "props": {
         "hierarchy": "secondary",
         "destructive": true
-      }
+      },
+      "figmaVariantId": "12728:2844"
     },
     {
       "label": "Primary disabled",
       "props": {
         "hierarchy": "primary",
         "disabled": true
-      }
+      },
+      "figmaVariantId": "12628:107766"
     },
     {
       "label": "With leading icon",
       "props": {
         "hierarchy": "primary",
         "iconLeading": true
-      }
+      },
+      "figmaVariantId": "12628:107670"
     },
     {
       "label": "With trailing icon",
       "props": {
         "hierarchy": "primary",
         "iconTrailing": true
-      }
+      },
+      "figmaVariantId": "12628:107670"
     }
   ]
 }

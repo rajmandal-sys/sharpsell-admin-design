@@ -1,29 +1,173 @@
 {
   "name": "Icon Button",
-  "description": "Compact button rendered as a single icon without a text label. Used for toolbar-style actions where the icon meaning is unambiguous.",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "14075:100096",
+    "name": "SS-icon-button",
+    "type": "COMPONENT_SET"
+  },
+  "description": "Compact button rendered as a single icon without a text label. Used for toolbar-style or dense control areas where the icon meaning is unambiguous in context.",
   "category": "Actions",
-  "variants": {
+  "componentProperties": {
+    "Icon leading": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Icon leading swap": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": null
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Enabled",
+      "options": [
+        "Enabled",
+        "Hover",
+        "Pressed",
+        "Focused",
+        "Disabled"
+      ]
+    },
+    "Type": {
+      "type": "VARIANT",
+      "defaultValue": "Secondary",
+      "options": [
+        "Primary",
+        "Secondary"
+      ]
+    }
+  },
+  "variantAxes": {
     "type": [
-      "primary",
-      "secondary"
+      "Primary",
+      "Secondary"
+    ],
+    "state": [
+      "Enabled",
+      "Hover",
+      "Pressed",
+      "Focused",
+      "Disabled"
     ]
   },
-  "states": [
-    "enabled",
-    "hover",
-    "pressed",
-    "focused",
-    "disabled"
+  "variants": [
+    {
+      "id": "12628:107740",
+      "type": "Primary",
+      "state": "Enabled",
+      "description": "Outlined icon button. Default interactive state, ready to be clicked or tapped.",
+      "bg": "button/secondary/bg",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "12628:107734",
+      "type": "Primary",
+      "state": "Hover",
+      "description": "Outlined icon button. Pointer-hover state. Visual emphasis increases slightly to confirm interactivity.",
+      "bg": "button/secondary/bg-hover",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "12908:2860",
+      "type": "Primary",
+      "state": "Pressed",
+      "description": "Outlined icon button. Active pressed state shown while the user is clicking or pressing.",
+      "bg": "button/secondary/bg-pressed",
+      "border": "button/secondary/border",
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "12628:107736",
+      "type": "Primary",
+      "state": "Focused",
+      "description": "Outlined icon button. Keyboard-focused state. Focus ring indicates readiness for keyboard trigger.",
+      "bg": "button/secondary/bg",
+      "border": "button/secondary/border-focus",
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "12628:107738",
+      "type": "Primary",
+      "state": "Disabled",
+      "description": "Outlined icon button. Unavailable state. Action is visible but cannot be triggered.",
+      "bg": "button/secondary/bg-disabled",
+      "border": "button/secondary/border-disabled",
+      "fg": "button/secondary/fg-disabled"
+    },
+    {
+      "id": "13824:211359",
+      "type": "Secondary",
+      "state": "Enabled",
+      "description": "Ghost icon button. Default interactive state. No background or border fill.",
+      "bg": null,
+      "border": null,
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "13824:211356",
+      "type": "Secondary",
+      "state": "Hover",
+      "description": "Ghost icon button. Pointer-hover state. Subtle background appears to confirm interactivity.",
+      "bg": "color/gray/50",
+      "border": null,
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "13824:211355",
+      "type": "Secondary",
+      "state": "Pressed",
+      "description": "Ghost icon button. Active pressed state shown while the user is clicking or pressing.",
+      "bg": "color/gray/100",
+      "border": null,
+      "fg": "button/secondary/fg-hover"
+    },
+    {
+      "id": "13824:211358",
+      "type": "Secondary",
+      "state": "Focused",
+      "description": "Ghost icon button. Keyboard-focused state. A border appears to indicate keyboard focus.",
+      "bg": "button/secondary/bg",
+      "border": "color/gray/200",
+      "fg": "button/secondary/fg"
+    },
+    {
+      "id": "13824:211357",
+      "type": "Secondary",
+      "state": "Disabled",
+      "description": "Ghost icon button. Unavailable state. Action is visible but cannot be triggered.",
+      "bg": "button/secondary/bg-disabled",
+      "border": null,
+      "fg": "button/secondary/fg-disabled"
+    }
+  ],
+  "constraints": [
+    "Primary type always renders with a border (outlined). Secondary type is ghost — no border except when focused.",
+    "Both types share the button/secondary token set. Primary adds a persistent border; Secondary adds it only on focus.",
+    "Icon fg tokens are shared across both types in equivalent states."
   ],
   "props": {
     "type": {
       "type": "enum",
-      "default": "secondary",
+      "default": "Secondary",
       "options": [
-        "primary",
-        "secondary"
+        "Primary",
+        "Secondary"
       ],
-      "description": "Visual style — Primary for high emphasis, Secondary for standard actions."
+      "description": "Visual style. Primary renders outlined (persistent border); Secondary renders ghost (no border in most states)."
+    },
+    "state": {
+      "type": "enum",
+      "default": "Enabled",
+      "options": [
+        "Enabled",
+        "Hover",
+        "Pressed",
+        "Focused",
+        "Disabled"
+      ],
+      "description": "Interactive state of the icon button."
     },
     "iconLeading": {
       "type": "boolean",
@@ -34,44 +178,109 @@
       "type": "instance-swap",
       "default": null,
       "description": "Icon instance to render."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Prevents interaction. Maps to State=Disabled in Figma."
+    }
+  },
+  "layout": {
+    "height": 28,
+    "width": 28,
+    "padding": {
+      "left": 6,
+      "right": 6,
+      "top": 6,
+      "bottom": 6
+    },
+    "gap": 8,
+    "radius": 8,
+    "strokeWidth": 1,
+    "direction": "HORIZONTAL",
+    "align": "CENTER",
+    "clipsContent": true
+  },
+  "children": {
+    "iconLeading": {
+      "type": "INSTANCE",
+      "name": "Icon Leading",
+      "size": 16
     }
   },
   "tokens": {
-    "secondary": {
+    "primary": {
       "surface": {
         "enabled": "button/secondary/bg",
         "hover": "button/secondary/bg-hover",
         "pressed": "button/secondary/bg-pressed",
+        "focused": "button/secondary/bg",
         "disabled": "button/secondary/bg-disabled"
       },
       "icon": {
         "enabled": "button/secondary/fg",
         "hover": "button/secondary/fg-hover",
+        "pressed": "button/secondary/fg-hover",
+        "focused": "button/secondary/fg",
         "disabled": "button/secondary/fg-disabled"
       },
       "border": {
         "enabled": "button/secondary/border",
-        "focus": "button/secondary/border-focus",
+        "hover": "button/secondary/border",
+        "pressed": "button/secondary/border",
+        "focused": "button/secondary/border-focus",
         "disabled": "button/secondary/border-disabled"
+      }
+    },
+    "secondary": {
+      "surface": {
+        "enabled": null,
+        "hover": "color/gray/50",
+        "pressed": "color/gray/100",
+        "focused": "button/secondary/bg",
+        "disabled": "button/secondary/bg-disabled"
+      },
+      "icon": {
+        "enabled": "button/secondary/fg",
+        "hover": "button/secondary/fg-hover",
+        "pressed": "button/secondary/fg-hover",
+        "focused": "button/secondary/fg",
+        "disabled": "button/secondary/fg-disabled"
+      },
+      "border": {
+        "enabled": null,
+        "hover": null,
+        "pressed": null,
+        "focused": "color/gray/200",
+        "disabled": null
       }
     }
   },
   "spacing": {
     "padding": "app-spacing/s6",
+    "gap": "app-spacing/s8",
     "width": "28px",
     "height": "28px",
     "border-radius": "radius/medium",
     "border-width": "stroke/s1",
     "icon-size": "icon-size/xs"
   },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "borders": "../tokens/borders.json"
+  },
   "usage": {
     "do": [
       "Use for compact toolbar-style actions where the icon meaning is clear",
-      "Always provide an aria-label since there is no visible text"
+      "Always provide an aria-label since there is no visible text",
+      "Use Primary (outlined) when a persistent border helps distinguish it from surrounding content",
+      "Use Secondary (ghost) for subtle inline actions in dense layouts"
     ],
     "dont": [
       "Don't use if the action meaning is ambiguous without a label",
-      "Don't use as a primary call to action — use Button instead"
+      "Don't use as a primary call to action — use Button instead",
+      "Don't omit aria-label — without it the button is inaccessible to screen readers"
     ]
   },
   "accessibility": {
@@ -80,27 +289,72 @@
       "aria-label (required — no visible text)",
       "aria-disabled"
     ],
-    "keyboard": "Tab to focus, Enter or Space to activate."
+    "keyboard": "Tab to focus, Enter or Space to activate. Focused state must remain clearly visible."
   },
   "examples": [
     {
-      "label": "Secondary default",
+      "label": "Secondary enabled",
       "props": {
-        "type": "secondary"
-      }
+        "type": "Secondary",
+        "state": "Enabled"
+      },
+      "figmaVariantId": "13824:211359"
     },
     {
-      "label": "Primary default",
+      "label": "Secondary hover",
       "props": {
-        "type": "primary"
-      }
+        "type": "Secondary",
+        "state": "Hover"
+      },
+      "figmaVariantId": "13824:211356"
     },
     {
-      "label": "Disabled",
+      "label": "Secondary focused",
       "props": {
-        "type": "secondary",
-        "disabled": true
-      }
+        "type": "Secondary",
+        "state": "Focused"
+      },
+      "figmaVariantId": "13824:211358"
+    },
+    {
+      "label": "Secondary disabled",
+      "props": {
+        "type": "Secondary",
+        "state": "Disabled"
+      },
+      "figmaVariantId": "13824:211357"
+    },
+    {
+      "label": "Primary enabled",
+      "props": {
+        "type": "Primary",
+        "state": "Enabled"
+      },
+      "figmaVariantId": "12628:107740"
+    },
+    {
+      "label": "Primary hover",
+      "props": {
+        "type": "Primary",
+        "state": "Hover"
+      },
+      "figmaVariantId": "12628:107734"
+    },
+    {
+      "label": "Primary focused",
+      "props": {
+        "type": "Primary",
+        "state": "Focused"
+      },
+      "figmaVariantId": "12628:107736"
+    },
+    {
+      "label": "Primary disabled",
+      "props": {
+        "type": "Primary",
+        "state": "Disabled"
+      },
+      "figmaVariantId": "12628:107738"
     }
   ]
 }

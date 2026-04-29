@@ -1,31 +1,161 @@
 {
   "name": "Dropdown Single Select",
-  "description": "Single-select dropdown for choosing one value from a predefined list.",
-  "category": "Forms",
-  "variants": {
-    "destructive": [
-      false,
-      true
-    ]
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "12639:21627",
+    "name": "SS-dropdown-single-select",
+    "type": "COMPONENT_SET"
   },
-  "states": [
-    "enabled",
-    "hover",
-    "focused",
-    "open",
-    "filled",
-    "disabled"
+  "description": "Single-select dropdown for choosing one value from a predefined list. Use for status, role, country, category, or other finite controlled sets.",
+  "category": "Forms",
+  "componentProperties": {
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Enabled",
+      "options": ["Enabled", "Hover", "Focused", "Open", "Filled", "Disabled"]
+    },
+    "Destructive": {
+      "type": "BOOLEAN",
+      "defaultValue": false
+    },
+    "Label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Mandatory": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Label Info": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Hint Text": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Scroll Bar": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    }
+  },
+  "variantAxes": {
+    "state": ["Enabled", "Hover", "Focused", "Open", "Filled", "Disabled"],
+    "destructive": [false, true]
+  },
+  "constraints": [
+    "Disabled, Filled, and Open states only exist with Destructive=False.",
+    "Destructive=True is only valid for Enabled, Hover, and Focused states."
+  ],
+  "variants": [
+    {
+      "id": "12639:21626",
+      "state": "Enabled",
+      "destructive": false,
+      "description": "Default closed state. Ready for the user to open and choose one option.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border",
+      "fg": "input-dropdown/fg-placeholder"
+    },
+    {
+      "id": "12639:21622",
+      "state": "Hover",
+      "destructive": false,
+      "description": "Pointer-hover state. Visual feedback confirms the closed field can be opened.",
+      "bg": "input-dropdown/bg-hover",
+      "border": "input-dropdown/border",
+      "fg": "input-dropdown/fg-placeholder"
+    },
+    {
+      "id": "12639:21623",
+      "state": "Focused",
+      "destructive": false,
+      "description": "Active focus state. Field is ready for keyboard interaction and option navigation.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border-focus",
+      "fg": "input-dropdown/fg-placeholder"
+    },
+    {
+      "id": "12639:21625",
+      "state": "Open",
+      "destructive": false,
+      "description": "Menu expanded state. User is actively reviewing and choosing one option from the list.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border-focus",
+      "fg": "input-dropdown/fg"
+    },
+    {
+      "id": "13857:33351",
+      "state": "Filled",
+      "destructive": false,
+      "description": "A value has been selected. Shows the chosen option instead of placeholder text.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border",
+      "fg": "input-dropdown/fg"
+    },
+    {
+      "id": "12639:21624",
+      "state": "Disabled",
+      "destructive": false,
+      "description": "Unavailable state. The field is visible for context but cannot be opened or changed.",
+      "bg": "input-dropdown/bg-disabled",
+      "border": "input-dropdown/border",
+      "fg": "input-dropdown/fg-disabled"
+    },
+    {
+      "id": "13737:4460",
+      "state": "Enabled",
+      "destructive": true,
+      "description": "Default closed state with validation error styling. Selection is required or the current value is invalid.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border-error",
+      "fg": "input-dropdown/fg-placeholder"
+    },
+    {
+      "id": "13737:4449",
+      "state": "Hover",
+      "destructive": true,
+      "description": "Hover state with validation error styling.",
+      "bg": "input-dropdown/bg-hover",
+      "border": "input-dropdown/border-error",
+      "fg": "input-dropdown/fg-placeholder"
+    },
+    {
+      "id": "13065:3216",
+      "state": "Focused",
+      "destructive": true,
+      "description": "Focused error state. Field remains interactive while error styling signals a valid selection is still required.",
+      "bg": "input-dropdown/bg",
+      "border": "input-dropdown/border-error",
+      "fg": "input-dropdown/fg-placeholder"
+    }
   ],
   "props": {
+    "state": {
+      "type": "enum",
+      "default": "Enabled",
+      "options": ["Enabled", "Hover", "Focused", "Open", "Filled", "Disabled"],
+      "description": "Interactive state of the dropdown."
+    },
     "destructive": {
       "type": "boolean",
       "default": false,
-      "description": "Error styling when selection is required or the chosen value is invalid."
+      "description": "Error styling when selection is required or the chosen value is invalid. Only valid for Enabled, Hover, and Focused states."
     },
     "label": {
       "type": "boolean",
       "default": true,
       "description": "Shows the field label above the dropdown."
+    },
+    "mandatory": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows a required field indicator (*) next to the label."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an info icon next to the label."
     },
     "hintText": {
       "type": "boolean",
@@ -37,15 +167,137 @@
       "default": true,
       "description": "Shows a scrollbar in the dropdown menu when options overflow."
     },
-    "mandatory": {
+    "disabled": {
       "type": "boolean",
-      "default": true,
-      "description": "Shows a required field indicator next to the label."
+      "default": false,
+      "description": "Prevents interaction. Maps to State=Disabled in Figma."
+    }
+  },
+  "layout": {
+    "outer": {
+      "direction": "VERTICAL",
+      "gap": 2,
+      "width": 320
     },
-    "labelInfo": {
-      "type": "boolean",
-      "default": true,
-      "description": "Shows additional info text next to the label."
+    "inputField": {
+      "height": 28,
+      "paddingX": 8,
+      "paddingY": 6,
+      "gap": 8,
+      "radius": 8,
+      "strokeWidth": 1,
+      "direction": "HORIZONTAL",
+      "align": "CENTER",
+      "clipsContent": true
+    },
+    "menu": {
+      "position": "absolute",
+      "top": 34,
+      "radius": 8,
+      "strokeWidth": 1,
+      "paddingY": 4,
+      "shadow": "Shadow/lg",
+      "search": {
+        "paddingTop": 2,
+        "paddingBottom": 4,
+        "paddingX": 6
+      },
+      "item": {
+        "wrapperPaddingX": 6,
+        "wrapperPaddingY": 2,
+        "contentPaddingLeft": 8,
+        "contentPaddingRight": 10,
+        "contentPaddingY": 10,
+        "radius": 6
+      },
+      "footer": {
+        "paddingX": 12,
+        "paddingY": 8
+      },
+      "scrollbar": {
+        "width": 16,
+        "padding": 4
+      }
+    }
+  },
+  "children": {
+    "labelRow": {
+      "label": {
+        "type": "TEXT",
+        "characters": "Team member",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "mandatory": {
+        "type": "TEXT",
+        "characters": "*",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "labelInfo": {
+        "type": "INSTANCE",
+        "name": "info",
+        "size": 12
+      }
+    },
+    "inputField": {
+      "placeholder": {
+        "type": "TEXT",
+        "characters": "Select team member",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "arrowIcon": {
+        "type": "INSTANCE",
+        "name": "keyboard_arrow_down",
+        "size": 16
+      }
+    },
+    "menu": {
+      "searchInput": {
+        "type": "INSTANCE",
+        "name": "SS-search"
+      },
+      "menuItem": {
+        "type": "TEXT",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "checkIcon": {
+        "type": "INSTANCE",
+        "name": "check",
+        "size": 20
+      },
+      "clearButton": {
+        "type": "INSTANCE",
+        "name": "SS-button-link",
+        "label": "Clear"
+      }
+    },
+    "hintText": {
+      "type": "TEXT",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 100,
+      "letterSpacing": 0
     }
   },
   "tokens": {
@@ -82,6 +334,9 @@
         "text": "input-dropdown/menu-item-fg",
         "surface-selected": "input-dropdown/menu-item-bg-selected",
         "icon-check": "input-dropdown/menu-item-icon-check"
+      },
+      "footer": {
+        "clearButton": "button/link/fg"
       }
     },
     "search": {
@@ -97,26 +352,48 @@
     "width": "320px",
     "height": "62px",
     "gap": "app-spacing/s2",
+    "padding-x": "app-spacing/s8",
+    "padding-y": "app-spacing/s6",
     "border-radius": "radius/medium",
-    "menu-border-radius": "radius/small",
+    "menu-border-radius": "radius/medium",
+    "menu-item-border-radius": "radius/small",
     "border-width": "stroke/s1",
     "icon-size": "icon-size/xs",
-    "icon-size-info": "icon-size/xxs"
+    "icon-size-info": "icon-size/xxs",
+    "icon-size-check": "icon-size/sm"
   },
   "typography": {
     "font-family": "typography/font/family",
     "label": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/semibold(600)"
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 100,
+      "letter-spacing": 0
     },
     "value": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/regular(400)"
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "hint": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
     },
     "menu-item": {
       "font-size": "typography/font-size/sm",
-      "font-weight": "typography/font-weight/regular(400)"
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
     }
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "borders": "../tokens/borders.json",
+    "typography": "../tokens/typography.json"
   },
   "usage": {
     "do": [
@@ -126,7 +403,8 @@
     ],
     "dont": [
       "Don't use for multi-select behavior — use Multi Select instead",
-      "Don't use when free-form text entry is allowed — use Input instead"
+      "Don't use when free-form text entry is allowed — use Input instead",
+      "Don't combine Disabled with Destructive states"
     ]
   },
   "accessibility": {
@@ -142,33 +420,43 @@
   "examples": [
     {
       "label": "Default enabled",
-      "props": {
-        "destructive": false
-      }
+      "props": { "state": "Enabled", "destructive": false },
+      "figmaVariantId": "12639:21626"
+    },
+    {
+      "label": "Hover",
+      "props": { "state": "Hover", "destructive": false },
+      "figmaVariantId": "12639:21622"
+    },
+    {
+      "label": "Focused",
+      "props": { "state": "Focused", "destructive": false },
+      "figmaVariantId": "12639:21623"
     },
     {
       "label": "Open with options",
-      "props": {
-        "state": "open"
-      }
+      "props": { "state": "Open", "destructive": false },
+      "figmaVariantId": "12639:21625"
     },
     {
       "label": "Filled",
-      "props": {
-        "state": "filled"
-      }
-    },
-    {
-      "label": "With error",
-      "props": {
-        "destructive": true
-      }
+      "props": { "state": "Filled", "destructive": false },
+      "figmaVariantId": "13857:33351"
     },
     {
       "label": "Disabled",
-      "props": {
-        "disabled": true
-      }
+      "props": { "state": "Disabled", "destructive": false },
+      "figmaVariantId": "12639:21624"
+    },
+    {
+      "label": "With error",
+      "props": { "state": "Enabled", "destructive": true },
+      "figmaVariantId": "13737:4460"
+    },
+    {
+      "label": "Focused with error",
+      "props": { "state": "Focused", "destructive": true },
+      "figmaVariantId": "13065:3216"
     }
   ]
 }

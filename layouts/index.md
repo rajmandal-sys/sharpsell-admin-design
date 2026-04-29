@@ -4,37 +4,50 @@ Screen-level layout patterns used across SharpSell.
 
 ## Index
 
-| Layout | File | Used in |
+| Layout | File | Description |
 |---|---|---|
-| Dashboard | `dashboard.json` | Admin Console home |
-| List View | `list-view.json` | Tables, content lists |
-| Detail View | `detail-view.json` | Record / profile pages, pipeline config |
-| Form Page | `form-page.json` | Settings, configuration |
-| Empty State | `empty-state.json` | Zero-data screens |
-| Modal Flow | `modal-flow.json` | Multi-step modals |
+| Base Layout | [`base-layout.json`](./base-layout.json) | Application chrome shell — header, sidebar, and empty content slot. Every screen sits inside this. |
+| Detail View | [`detail-view.json`](./detail-view.json) | Two-column detail page — collapsable form sections on the left, summary panel on the right. |
 
 ## Layout File Structure
 
 ```json
 {
   "name": "LayoutName",
+  "figma": { "fileKey": "...", "nodeId": "..." },
   "description": "When to use this layout",
+  "viewport": { "min": "1366px", "reference": "1366px" },
   "regions": {
-    "header": { "height": "64px", "sticky": true },
-    "sidebar": { "width": "240px", "collapsible": true },
-    "content": { "padding": "semantic.spacing.lg" }
+    "region-name": {
+      "figmaNodeId": "...",
+      "description": "...",
+      "position": "top | left | right-of-sidebar",
+      "width": "...",
+      "height": "fill",
+      "sticky": true,
+      "surface": "token/path",
+      "padding": "app-spacing/s16",
+      "children": {}
+    }
   },
-  "breakpoints": {
-    "mobile":  "< 768px",
-    "tablet":  "768px – 1024px",
-    "desktop": "> 1024px"
+  "tokens": {},
+  "spacing": {},
+  "effects": {},
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json",
+    "borders": "../tokens/borders.json"
   },
-  "rules": ["..."]
+  "behavior": {},
+  "constraints": [],
+  "usage": { "do": [], "dont": [] },
+  "examples": []
 }
 ```
 
 ## Adding a New Layout
 
-1. Copy the structure above into a new `.json` file
-2. Add it to this index
+1. Create a new `.json` file following the structure above
+2. Add a row to the index table above
 3. Add its URL to `/agent/manifest.json` under `layouts`

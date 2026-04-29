@@ -1,35 +1,195 @@
 {
   "name": "Search",
-  "description": "Searchable input field for filtering or locating an item by typed query.",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "12940:2814",
+    "name": "SS-search",
+    "type": "COMPONENT_SET"
+  },
+  "description": "Searchable input field for filtering or locating an item by typed query. Use when users need to narrow a list, find a record, or enter a short searchable term directly in the field.",
   "category": "Forms",
-  "variants": [],
-  "states": [
-    "enabled",
-    "hover",
-    "focused",
-    "filled",
-    "disabled"
+  "componentProperties": {
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Enabled",
+      "options": ["Enabled", "Hover", "Focused", "Filled", "Disabled"]
+    },
+    "Label": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Label Info": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Hint Text": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Show Arrow": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    }
+  },
+  "variantAxes": {
+    "state": ["Enabled", "Hover", "Focused", "Filled", "Disabled"]
+  },
+  "constraints": [
+    "No destructive/error variant — search does not support inline validation error styling.",
+    "The clear (×) icon controlled by showArrow only renders in Filled and Focused states."
+  ],
+  "variants": [
+    {
+      "id": "12940:2902",
+      "state": "Enabled",
+      "description": "Default interactive state. Ready for typing a query or filter value.",
+      "bg": "input-search/bg",
+      "border": "input-search/border",
+      "fg": "input-search/fg"
+    },
+    {
+      "id": "12940:2891",
+      "state": "Hover",
+      "description": "Pointer-hover state. Visual feedback confirms the field is interactive before focus.",
+      "bg": "input-search/bg-hover",
+      "border": "input-search/border",
+      "fg": "input-search/fg"
+    },
+    {
+      "id": "12940:2935",
+      "state": "Focused",
+      "description": "Active typing state. Keyboard or pointer focus is inside the field. Clear action becomes available.",
+      "bg": "input-search/bg",
+      "border": "input-search/border-focus",
+      "fg": "input-search/text"
+    },
+    {
+      "id": "13914:4193",
+      "state": "Filled",
+      "description": "A value has been typed. Shows the entered text and exposes the clear (×) icon.",
+      "bg": "input-search/bg",
+      "border": "input-search/border",
+      "fg": "input-search/text"
+    },
+    {
+      "id": "12940:2913",
+      "state": "Disabled",
+      "description": "Unavailable state. Field is visible for context but cannot be edited or submitted.",
+      "bg": "input-search/bg-disabled",
+      "border": "input-search/border",
+      "fg": "input-search/text-disabled"
+    }
   ],
   "props": {
+    "state": {
+      "type": "enum",
+      "default": "Enabled",
+      "options": ["Enabled", "Hover", "Focused", "Filled", "Disabled"],
+      "description": "Interactive state of the search field."
+    },
     "label": {
       "type": "boolean",
       "default": true,
       "description": "Shows the field label above the search input."
+    },
+    "labelInfo": {
+      "type": "boolean",
+      "default": true,
+      "description": "Shows an info icon next to the label."
     },
     "hintText": {
       "type": "boolean",
       "default": true,
       "description": "Shows helper text below the search input."
     },
-    "labelInfo": {
-      "type": "boolean",
-      "default": true,
-      "description": "Shows additional info text next to the label."
-    },
     "showArrow": {
       "type": "boolean",
       "default": true,
-      "description": "Shows a trailing arrow indicator."
+      "description": "Shows the clear (×) icon to reset the field. Only renders in Filled and Focused states."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Prevents interaction. Maps to State=Disabled in Figma."
+    }
+  },
+  "layout": {
+    "outer": {
+      "direction": "VERTICAL",
+      "width": 320
+    },
+    "inputWithLabel": {
+      "direction": "VERTICAL",
+      "gap": 2
+    },
+    "inputContainer": {
+      "height": 28,
+      "paddingX": 8,
+      "paddingY": 6,
+      "gapContent": 6,
+      "gapClear": 8,
+      "radius": 8,
+      "strokeWidth": 1,
+      "direction": "HORIZONTAL",
+      "align": "CENTER",
+      "clipsContent": true
+    },
+    "labelRow": {
+      "gap": 2,
+      "direction": "HORIZONTAL",
+      "align": "CENTER"
+    }
+  },
+  "children": {
+    "labelRow": {
+      "label": {
+        "type": "TEXT",
+        "characters": "Search",
+        "fontFamily": "Inter",
+        "fontStyle": "Semi Bold",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "labelInfo": {
+        "type": "INSTANCE",
+        "name": "info",
+        "size": 12
+      }
+    },
+    "inputContainer": {
+      "searchIcon": {
+        "type": "INSTANCE",
+        "name": "search",
+        "size": 16
+      },
+      "text": {
+        "type": "TEXT",
+        "characters": "Search",
+        "fontFamily": "Inter",
+        "fontStyle": "Regular",
+        "fontSize": 12,
+        "fontWeight": 400,
+        "lineHeight": 100,
+        "letterSpacing": 0
+      },
+      "clearIcon": {
+        "type": "INSTANCE",
+        "name": "close",
+        "size": 16,
+        "note": "Only rendered in Filled and Focused states when showArrow=true"
+      }
+    },
+    "hintText": {
+      "type": "TEXT",
+      "characters": "This is a hint text to help user.",
+      "fontFamily": "Inter",
+      "fontStyle": "Regular",
+      "fontSize": 12,
+      "fontWeight": 400,
+      "lineHeight": 100,
+      "letterSpacing": 0
     }
   },
   "tokens": {
@@ -39,11 +199,11 @@
       "disabled": "input-search/bg-disabled"
     },
     "text": {
+      "placeholder": "input-search/fg",
       "value": "input-search/text",
-      "label": "input-search/label",
-      "hint": "input-search/hint-message",
       "disabled": "input-search/text-disabled",
-      "search-text": "input-search/fg"
+      "label": "input-search/label",
+      "hint": "input-search/hint-message"
     },
     "icon": {
       "search": "input-search/icon-search",
@@ -58,10 +218,11 @@
   },
   "spacing": {
     "width": "320px",
-    "height": "60px",
     "padding-x": "app-spacing/s8",
     "padding-y": "app-spacing/s6",
-    "gap": "app-spacing/s4",
+    "gap-label": "app-spacing/s2",
+    "gap-content": "app-spacing/s6",
+    "gap-clear": "app-spacing/s8",
     "border-radius": "radius/medium",
     "border-width": "stroke/s1",
     "icon-size": "icon-size/xs",
@@ -71,18 +232,34 @@
     "font-family": "typography/font/family",
     "label": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/semibold(600)"
+      "font-weight": "typography/font-weight/semibold(600)",
+      "line-height": 100,
+      "letter-spacing": 0
     },
     "value": {
       "font-size": "typography/font-size/xs",
-      "font-weight": "typography/font-weight/regular(400)"
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
+    },
+    "hint": {
+      "font-size": "typography/font-size/xs",
+      "font-weight": "typography/font-weight/regular(400)",
+      "line-height": 100,
+      "letter-spacing": 0
     }
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "borders": "../tokens/borders.json",
+    "typography": "../tokens/typography.json"
   },
   "usage": {
     "do": [
       "Use for search and filter entry, not for selecting from a fixed list",
       "Keep placeholder text short and action-oriented",
-      "Show a clear action when a value is present in focused state"
+      "Show the clear (×) action when a value is present in Focused or Filled state"
     ],
     "dont": [
       "Don't use when users must choose from predefined options only — use Select instead",
@@ -95,30 +272,33 @@
       "aria-label",
       "role=search (on container)"
     ],
-    "keyboard": "Tab to focus, type to search. Label should remain visible. Any clear action must be reachable by keyboard."
+    "keyboard": "Tab to focus, type to search. Label should remain visible. The clear action must be reachable by keyboard."
   },
   "examples": [
     {
       "label": "Default enabled",
-      "props": {}
+      "props": { "state": "Enabled" },
+      "figmaVariantId": "12940:2902"
     },
     {
-      "label": "Filled",
-      "props": {
-        "state": "filled"
-      }
+      "label": "Hover",
+      "props": { "state": "Hover" },
+      "figmaVariantId": "12940:2891"
     },
     {
       "label": "Focused",
-      "props": {
-        "state": "focused"
-      }
+      "props": { "state": "Focused" },
+      "figmaVariantId": "12940:2935"
+    },
+    {
+      "label": "Filled",
+      "props": { "state": "Filled" },
+      "figmaVariantId": "13914:4193"
     },
     {
       "label": "Disabled",
-      "props": {
-        "disabled": true
-      }
+      "props": { "state": "Disabled" },
+      "figmaVariantId": "12940:2913"
     }
   ]
 }

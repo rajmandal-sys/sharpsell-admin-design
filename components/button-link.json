@@ -1,16 +1,96 @@
 {
   "name": "Button Link",
-  "description": "Low-emphasis text-style action for secondary or tertiary flows.",
+  "figma": {
+    "fileKey": "aZTUdPgwqdwOBgyAWa56ty",
+    "nodeId": "12908:2876",
+    "name": "SS-button-link",
+    "type": "COMPONENT_SET"
+  },
+  "description": "Low-emphasis text-style action for secondary or tertiary flows. Use for inline actions, subtle navigation, or low-priority actions where a filled or outlined button would feel too heavy.",
   "category": "Actions",
-  "variants": [],
-  "states": [
-    "enabled",
-    "hover",
-    "pressed",
-    "focused",
-    "disabled"
+  "componentProperties": {
+    "Icon leading": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Icon trailing": {
+      "type": "BOOLEAN",
+      "defaultValue": true
+    },
+    "Icon leading swap": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": null
+    },
+    "Icon trailing swap": {
+      "type": "INSTANCE_SWAP",
+      "defaultValue": null
+    },
+    "State": {
+      "type": "VARIANT",
+      "defaultValue": "Enabled",
+      "options": [
+        "Enabled",
+        "Hover",
+        "Pressed",
+        "Focused",
+        "Disabled"
+      ]
+    }
+  },
+  "variantAxes": {
+    "state": [
+      "Enabled",
+      "Hover",
+      "Pressed",
+      "Focused",
+      "Disabled"
+    ]
+  },
+  "variants": [
+    {
+      "id": "12628:107757",
+      "state": "Enabled",
+      "description": "Default interactive state. Use when a filled or outlined button would feel too prominent.",
+      "fg": "button/link/fg"
+    },
+    {
+      "id": "12628:107739",
+      "state": "Hover",
+      "description": "Pointer-hover state. Text treatment shifts subtly to confirm interactivity.",
+      "fg": "button/link/fg-hover"
+    },
+    {
+      "id": "12906:2808",
+      "state": "Pressed",
+      "description": "Active pressed state shown while the user is triggering the action.",
+      "fg": "button/link/fg-pressed"
+    },
+    {
+      "id": "12628:107748",
+      "state": "Focused",
+      "description": "Keyboard-focused state. A visible focus treatment keeps the action discoverable for keyboard users.",
+      "fg": "button/link/fg-focus"
+    },
+    {
+      "id": "12628:107750",
+      "state": "Disabled",
+      "description": "Unavailable state. The action remains visible for context but cannot be activated.",
+      "fg": "button/link/fg-disabled"
+    }
   ],
   "props": {
+    "state": {
+      "type": "enum",
+      "default": "Enabled",
+      "options": [
+        "Enabled",
+        "Hover",
+        "Pressed",
+        "Focused",
+        "Disabled"
+      ],
+      "description": "Interactive state of the button link."
+    },
     "iconLeading": {
       "type": "boolean",
       "default": true,
@@ -30,6 +110,47 @@
       "type": "instance-swap",
       "default": null,
       "description": "Icon instance to render in the trailing slot."
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Prevents interaction. Maps to State=Disabled in Figma."
+    }
+  },
+  "layout": {
+    "height": 16,
+    "padding": {
+      "left": 0,
+      "right": 0,
+      "top": 0,
+      "bottom": 0
+    },
+    "gap": 4,
+    "radius": 0,
+    "direction": "HORIZONTAL",
+    "align": "CENTER",
+    "clipsContent": true
+  },
+  "children": {
+    "iconLeading": {
+      "type": "INSTANCE",
+      "name": "link-side-icon",
+      "size": 16
+    },
+    "text": {
+      "type": "TEXT",
+      "characters": "Button CTA",
+      "fontFamily": "Inter",
+      "fontStyle": "Semi Bold",
+      "fontSize": 12,
+      "fontWeight": 600,
+      "lineHeight": 100,
+      "letterSpacing": 0
+    },
+    "iconTrailing": {
+      "type": "INSTANCE",
+      "name": "link-side-icon",
+      "size": 16
     }
   },
   "tokens": {
@@ -37,7 +158,7 @@
       "enabled": "button/link/fg",
       "hover": "button/link/fg-hover",
       "pressed": "button/link/fg-pressed",
-      "focus": "button/link/fg-focus",
+      "focused": "button/link/fg-focus",
       "disabled": "button/link/fg-disabled"
     }
   },
@@ -52,12 +173,20 @@
   "typography": {
     "font-family": "typography/font/family",
     "font-size": "typography/font-size/xs",
-    "font-weight": "typography/font-weight/semibold(600)"
+    "font-weight": "typography/font-weight/semibold(600)",
+    "line-height": 100,
+    "letter-spacing": 0
+  },
+  "tokenSources": {
+    "colors": "../tokens/colors.json",
+    "spacing": "../tokens/spacing.json",
+    "typography": "../tokens/typography.json"
   },
   "usage": {
     "do": [
       "Use for lower-priority actions or inline action patterns",
-      "Keep labels short and explicit"
+      "Keep labels short and explicit",
+      "Use when a filled or outlined button would feel too heavy for the context"
     ],
     "dont": [
       "Don't use as the primary call to action in a section",
@@ -74,20 +203,55 @@
   },
   "examples": [
     {
-      "label": "Default",
-      "props": {}
+      "label": "Default enabled",
+      "props": {
+        "state": "Enabled"
+      },
+      "figmaVariantId": "12628:107757"
     },
     {
-      "label": "With icon",
+      "label": "With leading icon",
       "props": {
+        "state": "Enabled",
         "iconLeading": true
-      }
+      },
+      "figmaVariantId": "12628:107757"
+    },
+    {
+      "label": "With trailing icon",
+      "props": {
+        "state": "Enabled",
+        "iconTrailing": true
+      },
+      "figmaVariantId": "12628:107757"
+    },
+    {
+      "label": "Hover",
+      "props": {
+        "state": "Hover"
+      },
+      "figmaVariantId": "12628:107739"
+    },
+    {
+      "label": "Pressed",
+      "props": {
+        "state": "Pressed"
+      },
+      "figmaVariantId": "12906:2808"
+    },
+    {
+      "label": "Focused",
+      "props": {
+        "state": "Focused"
+      },
+      "figmaVariantId": "12628:107748"
     },
     {
       "label": "Disabled",
       "props": {
-        "disabled": true
-      }
+        "state": "Disabled"
+      },
+      "figmaVariantId": "12628:107750"
     }
   ]
 }
