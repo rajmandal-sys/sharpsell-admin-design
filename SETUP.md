@@ -13,7 +13,7 @@ Go to https://github.com and sign up (free).
 ## Step 2 — Create the repository
 
 1. Click the **+** icon → **New repository**
-2. Name it: `sharpsell-design-system`
+2. Name it: `sharpsell-admin-design`
 3. Set visibility to **Public** *(required for free GitHub Pages)*
 4. Click **Create repository**
 
@@ -37,7 +37,7 @@ Go to https://github.com and sign up (free).
 
 Your site will be live at:
 ```
-https://YOUR_USERNAME.github.io/sharpsell-design-system/
+https://rajmandal-sys.github.io/sharpsell-admin-design/
 ```
 
 ---
@@ -45,9 +45,9 @@ https://YOUR_USERNAME.github.io/sharpsell-design-system/
 ## Step 5 — Update the manifest
 
 1. Open `/agent/manifest.json`
-2. Replace `YOUR_ORG` with your GitHub username in the `base_url` field:
+2. Confirm the `base_url` field points to this repository:
    ```
-   "base_url": "https://raw.githubusercontent.com/YOUR_USERNAME/sharpsell-design-system/main"
+   "base_url": "https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main"
    ```
 3. Commit the change
 
@@ -55,9 +55,9 @@ https://YOUR_USERNAME.github.io/sharpsell-design-system/
 
 ## Step 6 — Test raw file access
 
-Open this URL in your browser (replace YOUR_USERNAME):
+Open this URL in your browser:
 ```
-https://raw.githubusercontent.com/YOUR_USERNAME/sharpsell-design-system/main/agent/manifest.json
+https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main/agent/manifest.json
 ```
 
 You should see the manifest JSON. This URL is what you give to the AI agent.
@@ -70,7 +70,7 @@ Use this in your agent's system prompt:
 
 ```
 Before generating any screen or component, fetch the SharpSell Design System manifest:
-https://raw.githubusercontent.com/YOUR_USERNAME/sharpsell-design-system/main/agent/manifest.json
+https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main/agent/manifest.json
 
 Read the priority_load files first (colors, spacing, typography, guidelines).
 Then load the component specs for any component you will use.
@@ -92,7 +92,7 @@ Any time you need to update a token or component spec:
 
 Share this URL with product people to browse the system:
 ```
-https://github.com/YOUR_USERNAME/sharpsell-design-system
+https://github.com/rajmandal-sys/sharpsell-admin-design
 ```
 
 GitHub renders Markdown files beautifully — the README, component index, and guidelines are all readable without any extra setup.

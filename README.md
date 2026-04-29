@@ -32,13 +32,13 @@ Browse any folder above. Each file is plain JSON or Markdown — readable in Git
 Point your agent to the manifest file — it lists every resource with its raw URL:
 
 ```
-https://raw.githubusercontent.com/YOUR_ORG/sharpsell-design-system/main/agent/manifest.json
+https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main/agent/manifest.json
 ```
 
 **Recommended system prompt snippet:**
 ```
 Before generating any screen or component, fetch the SharpSell Design System manifest at:
-https://raw.githubusercontent.com/YOUR_ORG/sharpsell-design-system/main/agent/manifest.json
+https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main/agent/manifest.json
 
 Load the relevant tokens and component specs. Follow all constraints exactly.
 Always use token values — never hardcode colors, spacing, or font sizes.
