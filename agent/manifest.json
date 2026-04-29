@@ -7,7 +7,7 @@
 
   "base_url": "https://raw.githubusercontent.com/rajmandal-sys/sharpsell-admin-design/main",
 
-  "agent_instructions": "You are generating UI for the SharpSell platform. Before generating any screen, fetch and read the resources listed in this manifest. Follow all token values, component specs, and guidelines exactly. Never hardcode colors, spacing, or font sizes — always reference tokens by name.",
+  "agent_instructions": "You are generating UI for the SharpSell platform. Before generating any screen, fetch and read the resources listed in this manifest. Follow all token values, component specs, and guidelines exactly. Never hardcode colors, spacing, or font sizes — always reference tokens by name. Fetch icons from Google Symbols (https://fonts.google.com/icons). Build desktop admin layouts responsively across 1200px to 1920px.",
 
   "tokens": {
     "colors":     "{base_url}/tokens/colors.json",

@@ -2,7 +2,11 @@
   "name": "Detail View",
   "description": "Two-column layout for record/entity detail pages with collapsable form sections on the left and a summary panel on the right. Used for pipeline details, configuration editors, and similar CRUD detail screens.",
   "category": "Layouts",
-  "viewport": "1366px",
+  "viewport": {
+    "min": "1200px",
+    "max": "1920px",
+    "reference": "1366px"
+  },
 
   "regions": {
     "header": {
@@ -24,7 +28,9 @@
     "content": {
       "description": "Main content area to the right of the sidebar.",
       "position": "right-of-sidebar",
-      "width": "1046px",
+      "width": "calc(100vw - 320px)",
+      "min-width": "880px",
+      "max-width": "1600px",
       "height": "fill",
       "scrollable": true,
       "padding": "app-spacing/s16",
@@ -46,8 +52,9 @@
           "children": {
             "primary": {
               "description": "Left column with collapsable card sections containing form fields. One card is expanded at a time, others are collapsed.",
-              "width": "675px",
+              "width": "minmax(0, 1fr)",
               "flex": "1",
+              "min-width": "540px",
               "height": "fill",
               "scrollable": true,
               "gap": "app-spacing/s16",
@@ -87,7 +94,22 @@
   "behavior": {
     "scroll": "Content region scrolls vertically. Header and sidebar remain fixed.",
     "collapse": "Collapsable cards in the primary column follow accordion behavior — expanding one may collapse others.",
-    "responsive": "Not currently responsive. Desktop-only (1366px viewport)."
+    "responsive": "Desktop responsive from 1200px to 1920px. The sidebar remains 320px, content width is fluid, the primary column flexes, and the secondary panel remains fixed at 323px. No horizontal scrolling at 1200px."
+  },
+
+  "responsive": {
+    "range": "1200px-1920px",
+    "min-supported-width": "1200px",
+    "max-supported-width": "1920px",
+    "reference-width": "1366px",
+    "rules": [
+      "Keep the 320px sidebar fixed across the desktop range",
+      "Use calc(100vw - 320px) for the content region, capped at 1600px",
+      "Keep the secondary panel fixed at 323px",
+      "Let the primary column absorb remaining width with min-width 540px",
+      "Preserve token-based padding and gaps at all supported widths",
+      "Do not introduce horizontal page scrolling between 1200px and 1920px"
+    ]
   },
 
   "usage": {

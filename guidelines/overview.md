@@ -58,6 +58,26 @@ SharpSell is a B2B sales enablement platform. The visual language is:
 
 ---
 
+## Icon Usage
+
+- Fetch all UI icons from **Google Symbols**: https://fonts.google.com/icons
+- Use the Google Symbol name directly in specs and implementation so icon intent stays traceable
+- Do not introduce custom icon sets or one-off SVG icons unless Google Symbols does not provide a matching symbol
+- Icon sizes must use `/tokens/borders.json` `iconSize` tokens
+- Icon color must come from semantic color tokens, never hardcoded values
+
+---
+
+## Responsive Layout
+
+- Admin layouts must be responsive across desktop widths from **1200px to 1920px**
+- Use fluid content regions, flexible columns, and token-based spacing instead of fixed viewport-only dimensions
+- Keep primary work areas visible and usable at 1200px without horizontal scrolling
+- At wider desktop widths, expand content intentionally while preserving readable field widths and scan-friendly density
+- Do not design only for a single desktop viewport such as 1366px
+
+---
+
 ## Accessibility Baseline
 
 - All interactive elements must be reachable via keyboard
@@ -76,3 +96,5 @@ SharpSell is a B2B sales enablement platform. The visual language is:
 | Use Inter font family | Introduce new font families |
 | Keep text hierarchy simple (2–3 roles per screen) | Stack 4+ heading levels |
 | Design at 320px input width for compact admin | Assume full-width layouts |
+| Fetch icons from Google Symbols | Use arbitrary custom SVG icon sets |
+| Support 1200px–1920px desktop layouts | Design only for a single fixed viewport |
